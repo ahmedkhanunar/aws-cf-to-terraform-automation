@@ -1,0 +1,1822 @@
+{
+    "assessment-service-stack": {
+        "AssessmentInboundLambdaExecRoleOnSQS": {
+            "Path": "/",
+            "RoleName": "AssessmentInboundLambdaExecRoleOnSQS",
+            "RoleId": "AROAVVLBRVWBP4MG4FCUW",
+            "Arn": "arn:aws:iam::389435993474:role/AssessmentInboundLambdaExecRoleOnSQS",
+            "CreateDate": "2025-07-15T01:04:57+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T18:12:05+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "AssessmentServiceRoleForSQS": {
+            "Path": "/",
+            "RoleName": "AssessmentServiceRoleForSQS",
+            "RoleId": "AROAVVLBRVWBH3JXIMP4F",
+            "Arn": "arn:aws:iam::389435993474:role/AssessmentServiceRoleForSQS",
+            "CreateDate": "2025-07-15T01:04:56+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Sid": "",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "apigateway.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "Allows API Gateway to push messages to SQS",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-07-15T01:43:31+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "schedule-service-stack": {
+        "main-ScheduleServiceGatewayRoleForSQS": {
+            "Path": "/",
+            "RoleName": "main-ScheduleServiceGatewayRoleForSQS",
+            "RoleId": "AROAVVLBRVWBPAH2NRILD",
+            "Arn": "arn:aws:iam::389435993474:role/main-ScheduleServiceGatewayRoleForSQS",
+            "CreateDate": "2024-11-20T17:11:06+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Sid": "",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "apigateway.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "Allows API Gateway to push messages to SQS",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-25T14:09:25+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "main-ScheduleServiceLambdaSQSExecRole": {
+            "Path": "/",
+            "RoleName": "main-ScheduleServiceLambdaSQSExecRole",
+            "RoleId": "AROAVVLBRVWBJHD5BPXUP",
+            "Arn": "arn:aws:iam::389435993474:role/main-ScheduleServiceLambdaSQSExecRole",
+            "CreateDate": "2024-11-20T17:11:06+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "Allows Lambda functions to call AWS services on your behalf.",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T18:11:42+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "hp-middleware-sam-HelloPorterMiddlewareCognito-I676MUB85FO2": {
+        "hp-middleware-sam-HelloPo-CognitoMessageTriggerRole-kRBVEAOpx1IK": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPo-CognitoMessageTriggerRole-kRBVEAOpx1IK",
+            "RoleId": "AROAVVLBRVWBHRUKZFANI",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPo-CognitoMessageTriggerRole-kRBVEAOpx1IK",
+            "CreateDate": "2024-05-01T00:29:30+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-26T16:13:56+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPo-GetMemberMappingLambdaRol-MkDszb9hJowO": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPo-GetMemberMappingLambdaRol-MkDszb9hJowO",
+            "RoleId": "AROAVVLBRVWBINLNBFMIF",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPo-GetMemberMappingLambdaRol-MkDszb9hJowO",
+            "CreateDate": "2024-05-01T00:29:31+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T20:20:27+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "hp-middleware-sam-HelloPorterMiddlewareKeyRotation-1XBGJUYTW1GDR": {
+        "hp-middleware-sam-HelloPorter-KeyRotationLambdaRole-2gcL1CBoSJYt": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPorter-KeyRotationLambdaRole-2gcL1CBoSJYt",
+            "RoleId": "AROAVVLBRVWBC7SNQ4GYO",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPorter-KeyRotationLambdaRole-2gcL1CBoSJYt",
+            "CreateDate": "2024-04-30T00:25:01+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T13:28:54+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPor-KeyRotationSchedulerRole-k9YhHorScbxG": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPor-KeyRotationSchedulerRole-k9YhHorScbxG",
+            "RoleId": "AROAVVLBRVWBJDAVR47NI",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPor-KeyRotationSchedulerRole-k9YhHorScbxG",
+            "CreateDate": "2024-04-30T00:25:05+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "scheduler.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T13:28:49+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "hp-middleware-sam-HelloPorterMiddlewareSecurityHubAlert-19OZVYS2GMU2Y": {
+        "hp-middleware-sam-HelloPo-SecurityHubAlertLamndaRol-srWlOCJEwvWu": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPo-SecurityHubAlertLamndaRol-srWlOCJEwvWu",
+            "RoleId": "AROAVVLBRVWBHISFF5T35",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPo-SecurityHubAlertLamndaRol-srWlOCJEwvWu",
+            "CreateDate": "2024-04-30T00:25:02+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-08-15T16:27:43+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2": {
+        "hp-middleware-sam-HelloPor-ExceptionEmailLambdaRole-X7TyoxD8Tkk0": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPor-ExceptionEmailLambdaRole-X7TyoxD8Tkk0",
+            "RoleId": "AROAVVLBRVWBJTVZICDXM",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPor-ExceptionEmailLambdaRole-X7TyoxD8Tkk0",
+            "CreateDate": "2024-04-30T00:22:09+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T18:11:14+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPorter-MHCScreeningToDocRole-Yr6mmqxSGDJB": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPorter-MHCScreeningToDocRole-Yr6mmqxSGDJB",
+            "RoleId": "AROAVVLBRVWBJ5GXGO53R",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPorter-MHCScreeningToDocRole-Yr6mmqxSGDJB",
+            "CreateDate": "2024-04-30T23:49:18+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-08-11T21:42:56+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPor-PorterSQSSendMessageRole-75NWa4mlBPZo": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPor-PorterSQSSendMessageRole-75NWa4mlBPZo",
+            "RoleId": "AROAVVLBRVWBH7XWWVKTL",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPor-PorterSQSSendMessageRole-75NWa4mlBPZo",
+            "CreateDate": "2024-04-30T00:22:09+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "apigateway.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-04-28T21:12:44+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPo-PreDataFileProcessingLamb-QI8x6xVTCrMO": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPo-PreDataFileProcessingLamb-QI8x6xVTCrMO",
+            "RoleId": "AROAVVLBRVWBGFAHJLIJT",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPo-PreDataFileProcessingLamb-QI8x6xVTCrMO",
+            "CreateDate": "2024-04-30T00:22:09+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {}
+        },
+        "hp-middleware-sam-HelloPorte-PreDataQueueLambdaRole-YgUfcyp2iyzz": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPorte-PreDataQueueLambdaRole-YgUfcyp2iyzz",
+            "RoleId": "AROAVVLBRVWBLR5YWAM3C",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPorte-PreDataQueueLambdaRole-YgUfcyp2iyzz",
+            "CreateDate": "2024-04-30T00:22:10+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T18:08:09+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPo-SFMEmberBenefitLambdaRole-Je7L25oxBFYu": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPo-SFMEmberBenefitLambdaRole-Je7L25oxBFYu",
+            "RoleId": "AROAVVLBRVWBDUHPL3S7R",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPo-SFMEmberBenefitLambdaRole-Je7L25oxBFYu",
+            "CreateDate": "2024-04-30T00:22:09+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-26T18:25:31+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPo-SFTPCopyScanDeleteLambdaR-sqbXm3taaQDY": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPo-SFTPCopyScanDeleteLambdaR-sqbXm3taaQDY",
+            "RoleId": "AROAVVLBRVWBJKKW7WTIG",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPo-SFTPCopyScanDeleteLambdaR-sqbXm3taaQDY",
+            "CreateDate": "2024-04-30T00:22:09+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-08-11T20:53:22+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPo-SalesforceScreeningDataQu-otdwyY9c3UtE": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPo-SalesforceScreeningDataQu-otdwyY9c3UtE",
+            "RoleId": "AROAVVLBRVWBGUQ45QL3U",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPo-SalesforceScreeningDataQu-otdwyY9c3UtE",
+            "CreateDate": "2024-04-30T00:22:10+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T18:07:56+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "hp-middleware-sam-HelloPorterMiddlewareDynamoDBTables-7W1IXI3G7QRT": {
+        "DynamoDBScalingRole": {
+            "Path": "/",
+            "RoleName": "DynamoDBScalingRole",
+            "RoleId": "AROAVVLBRVWBK54XKBAJ2",
+            "Arn": "arn:aws:iam::389435993474:role/DynamoDBScalingRole",
+            "CreateDate": "2024-04-30T00:56:57+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "application-autoscaling.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {}
+        }
+    },
+    "hp-middleware-sam-HelloPorterMiddlewareLambdaLayers-FBMJ3S3ZWLIO": {
+        "hp-middleware-sam-HelloPo-GetLambdaLayerArnLambdaRo-kUMYYEt0O0X4": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPo-GetLambdaLayerArnLambdaRo-kUMYYEt0O0X4",
+            "RoleId": "AROAVVLBRVWBHJYGTDCLP",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPo-GetLambdaLayerArnLambdaRo-kUMYYEt0O0X4",
+            "CreateDate": "2024-05-15T18:55:08+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-08-11T21:47:15+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPo-GetLambdaLayerArnNewLambd-dFWumcNbg0yP": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPo-GetLambdaLayerArnNewLambd-dFWumcNbg0yP",
+            "RoleId": "AROAVVLBRVWBKD4EVSNVY",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPo-GetLambdaLayerArnNewLambd-dFWumcNbg0yP",
+            "CreateDate": "2024-08-28T17:48:43+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-17T14:25:35+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "StackSet-porter-cognito-export-import-StackSet-43b0304e-fb81-4dae-87a0-b6b27edce4ff": {
+        "StackSet-porter-cognito-e-BackupTableCleanupLambdaR-dUaP6hknjEEb": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-BackupTableCleanupLambdaR-dUaP6hknjEEb",
+            "RoleId": "AROAVVLBRVWBCRARX4BQE",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-BackupTableCleanupLambdaR-dUaP6hknjEEb",
+            "CreateDate": "2024-03-15T22:51:19+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T22:53:14+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "StackSet-porter-cognito-e-CheckExecutionsLambdaRole-BudeRisKfhyg": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-CheckExecutionsLambdaRole-BudeRisKfhyg",
+            "RoleId": "AROAVVLBRVWBOAA7OQKWW",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-CheckExecutionsLambdaRole-BudeRisKfhyg",
+            "CreateDate": "2024-03-15T22:50:13+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T22:53:01+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "StackSet-porter-cognito-e-CheckUserPoolConfigLambda-BCwUPN9ciYfW": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-CheckUserPoolConfigLambda-BCwUPN9ciYfW",
+            "RoleId": "AROAVVLBRVWBNP3WVCX45",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-CheckUserPoolConfigLambda-BCwUPN9ciYfW",
+            "CreateDate": "2024-03-15T22:50:13+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T22:53:03+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "StackSet-porter-cognito-e-CheckWorkflowQueuesLambda-Um1Vzf7catZl": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-CheckWorkflowQueuesLambda-Um1Vzf7catZl",
+            "RoleId": "AROAVVLBRVWBAOQYDTUIN",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-CheckWorkflowQueuesLambda-Um1Vzf7catZl",
+            "CreateDate": "2024-03-15T22:51:20+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {}
+        },
+        "StackSet-porter-cognito-e-CognitoUserImportCloudWat-Pg3EsCBwQim3": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-CognitoUserImportCloudWat-Pg3EsCBwQim3",
+            "RoleId": "AROAVVLBRVWBDPUSQMF3A",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-CognitoUserImportCloudWat-Pg3EsCBwQim3",
+            "CreateDate": "2024-03-15T22:50:13+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "cognito-idp.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {}
+        },
+        "StackSet-porter-cognito-expor-ExportGroupLambdaRole-DGQLpCTxJp9G": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-expor-ExportGroupLambdaRole-DGQLpCTxJp9G",
+            "RoleId": "AROAVVLBRVWBGYVI2SQFN",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-expor-ExportGroupLambdaRole-DGQLpCTxJp9G",
+            "CreateDate": "2024-03-15T22:50:13+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T22:53:12+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "StackSet-porter-cognito-e-ExportUsersInGroupLambdaR-OiGtcuoOP6iW": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-ExportUsersInGroupLambdaR-OiGtcuoOP6iW",
+            "RoleId": "AROAVVLBRVWBJZGFJ62ZO",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-ExportUsersInGroupLambdaR-OiGtcuoOP6iW",
+            "CreateDate": "2024-03-15T22:50:13+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T22:53:15+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "StackSet-porter-cognito-expor-ExportUsersLambdaRole-7PBGy1JGlGbY": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-expor-ExportUsersLambdaRole-7PBGy1JGlGbY",
+            "RoleId": "AROAVVLBRVWBKMMYRU7P5",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-expor-ExportUsersLambdaRole-7PBGy1JGlGbY",
+            "CreateDate": "2024-03-15T22:50:13+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T22:53:05+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "StackSet-porter-cognito-e-ExportWorkflowEventRuleRo-n5VFedVAH2OH": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-ExportWorkflowEventRuleRo-n5VFedVAH2OH",
+            "RoleId": "AROAVVLBRVWBALUYWFYON",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-ExportWorkflowEventRuleRo-n5VFedVAH2OH",
+            "CreateDate": "2024-03-15T22:52:06+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "events.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T22:52:54+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "StackSet-porter-cognito-e-ExportWorkflowServiceRole-iSlO4whxyoY0": {
+            "Path": "/service-role/",
+            "RoleName": "StackSet-porter-cognito-e-ExportWorkflowServiceRole-iSlO4whxyoY0",
+            "RoleId": "AROAVVLBRVWBKXB226PJZ",
+            "Arn": "arn:aws:iam::389435993474:role/service-role/StackSet-porter-cognito-e-ExportWorkflowServiceRole-iSlO4whxyoY0",
+            "CreateDate": "2024-03-15T22:51:42+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "states.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T22:53:11+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "StackSet-porter-cognito-e-ImportCheckImportJobLambd-PkUb0byCnF3U": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-ImportCheckImportJobLambd-PkUb0byCnF3U",
+            "RoleId": "AROAVVLBRVWBJN7RLLNXT",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-ImportCheckImportJobLambd-PkUb0byCnF3U",
+            "CreateDate": "2024-03-15T22:50:22+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {}
+        },
+        "StackSet-porter-cognito-e-ImportCheckNewUserPoolLam-jo2stxmIzn3L": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-ImportCheckNewUserPoolLam-jo2stxmIzn3L",
+            "RoleId": "AROAVVLBRVWBFV5WGHK4I",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-ImportCheckNewUserPoolLam-jo2stxmIzn3L",
+            "CreateDate": "2024-03-15T22:50:13+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {}
+        },
+        "StackSet-porter-cognito-ex-ImportNewUsersLambdaRole-OAa15PnMQKfo": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-ex-ImportNewUsersLambdaRole-OAa15PnMQKfo",
+            "RoleId": "AROAVVLBRVWBHYTKIES2X",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-ex-ImportNewUsersLambdaRole-OAa15PnMQKfo",
+            "CreateDate": "2024-03-15T22:51:21+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {}
+        },
+        "StackSet-porter-cognito-e-ImportScanTableLambdaRole-ze2vuXpvSB2Y": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-ImportScanTableLambdaRole-ze2vuXpvSB2Y",
+            "RoleId": "AROAVVLBRVWBHFA4CUF7A",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-ImportScanTableLambdaRole-ze2vuXpvSB2Y",
+            "CreateDate": "2024-03-15T22:51:20+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {}
+        },
+        "StackSet-porter-cognito-e-ImportUpdateNewUsersLambd-2FhrcyqD5db9": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-ImportUpdateNewUsersLambd-2FhrcyqD5db9",
+            "RoleId": "AROAVVLBRVWBKQDQ5BP5F",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-ImportUpdateNewUsersLambd-2FhrcyqD5db9",
+            "CreateDate": "2024-03-15T22:51:20+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {}
+        },
+        "StackSet-porter-cognito-e-ImportWorkflowServiceRole-pNzYhw9eGhhz": {
+            "Path": "/service-role/",
+            "RoleName": "StackSet-porter-cognito-e-ImportWorkflowServiceRole-pNzYhw9eGhhz",
+            "RoleId": "AROAVVLBRVWBIU4JWBLME",
+            "Arn": "arn:aws:iam::389435993474:role/service-role/StackSet-porter-cognito-e-ImportWorkflowServiceRole-pNzYhw9eGhhz",
+            "CreateDate": "2024-03-15T22:51:45+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "states.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {}
+        },
+        "StackSet-porter-cognito-export-ListGroupsLambdaRole-9ZWiuWrx85dm": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-export-ListGroupsLambdaRole-9ZWiuWrx85dm",
+            "RoleId": "AROAVVLBRVWBJVL6CBAMR",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-export-ListGroupsLambdaRole-9ZWiuWrx85dm",
+            "CreateDate": "2024-03-15T22:50:13+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T22:53:12+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "StackSet-porter-cognito-e-StackSetConstantsCustomRe-M7jvlHfueXlg": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-StackSetConstantsCustomRe-M7jvlHfueXlg",
+            "RoleId": "AROAVVLBRVWBMSWLV5TG5",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-StackSetConstantsCustomRe-M7jvlHfueXlg",
+            "CreateDate": "2024-03-15T22:49:38+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "StackSet-porter-cognito-export-import-StackSet-43b0304e-fb81-4dae-87a0-b6b27edce4ff-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-03-15T22:55:08+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "StackSet-porter-cognito-e-WorkflowMessageBrokerLamb-oiavHK21Umj4": {
+            "Path": "/",
+            "RoleName": "StackSet-porter-cognito-e-WorkflowMessageBrokerLamb-oiavHK21Umj4",
+            "RoleId": "AROAVVLBRVWBA6V3CDV3I",
+            "Arn": "arn:aws:iam::389435993474:role/StackSet-porter-cognito-e-WorkflowMessageBrokerLamb-oiavHK21Umj4",
+            "CreateDate": "2024-03-15T22:50:22+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T22:53:18+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "porter-cognito-export-import": {
+        "porter-cognito-export-import-GlobalTableCheckerRole-5W2a8xTXzplx": {
+            "Path": "/",
+            "RoleName": "porter-cognito-export-import-GlobalTableCheckerRole-5W2a8xTXzplx",
+            "RoleId": "AROAVVLBRVWBFT52K2UAV",
+            "Arn": "arn:aws:iam::389435993474:role/porter-cognito-export-import-GlobalTableCheckerRole-5W2a8xTXzplx",
+            "CreateDate": "2024-03-15T22:42:59+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-03-15T22:49:17+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "porter-cognito-export-import-GlobalTableCreatorRole-zfndFH02HRfM": {
+            "Path": "/",
+            "RoleName": "porter-cognito-export-import-GlobalTableCreatorRole-zfndFH02HRfM",
+            "RoleId": "AROAVVLBRVWBJUDZ62XYT",
+            "Arn": "arn:aws:iam::389435993474:role/porter-cognito-export-import-GlobalTableCreatorRole-zfndFH02HRfM",
+            "CreateDate": "2024-03-15T22:43:45+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-06-05T16:18:56+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "porter-cognito-export-imp-SecondaryUserPoolTableSte-AojbPJtAK3aL": {
+            "Path": "/service-role/",
+            "RoleName": "porter-cognito-export-imp-SecondaryUserPoolTableSte-AojbPJtAK3aL",
+            "RoleId": "AROAVVLBRVWBMOW4QESEY",
+            "Arn": "arn:aws:iam::389435993474:role/service-role/porter-cognito-export-imp-SecondaryUserPoolTableSte-AojbPJtAK3aL",
+            "CreateDate": "2024-03-15T22:43:22+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "states.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-03-15T22:45:03+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "porter-cognito-export-imp-SolutionConstantsCustomRe-4gSoNPILEGlh": {
+            "Path": "/",
+            "RoleName": "porter-cognito-export-imp-SolutionConstantsCustomRe-4gSoNPILEGlh",
+            "RoleId": "AROAVVLBRVWBOSM3OMJVT",
+            "Arn": "arn:aws:iam::389435993474:role/porter-cognito-export-imp-SolutionConstantsCustomRe-4gSoNPILEGlh",
+            "CreateDate": "2024-03-15T22:45:07+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-03-15T22:50:36+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "porter-cognito-export-imp-StackCheckerCustomResourc-nZKUTdIgVnJq": {
+            "Path": "/",
+            "RoleName": "porter-cognito-export-imp-StackCheckerCustomResourc-nZKUTdIgVnJq",
+            "RoleId": "AROAVVLBRVWBDABPBWZLK",
+            "Arn": "arn:aws:iam::389435993474:role/porter-cognito-export-imp-StackCheckerCustomResourc-nZKUTdIgVnJq",
+            "CreateDate": "2024-03-15T22:45:07+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-03-15T22:50:41+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "porter-cognito-export-import-StackSetAdminRole-RZenqtoS6Mek": {
+            "Path": "/",
+            "RoleName": "porter-cognito-export-import-StackSetAdminRole-RZenqtoS6Mek",
+            "RoleId": "AROAVVLBRVWBK3JWGGC7Y",
+            "Arn": "arn:aws:iam::389435993474:role/porter-cognito-export-import-StackSetAdminRole-RZenqtoS6Mek",
+            "CreateDate": "2024-03-15T22:45:58+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "cloudformation.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-03-15T22:49:33+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "porter-cognito-export-imp-StackSetCheckStatusLambda-64roY3HZtO0F": {
+            "Path": "/",
+            "RoleName": "porter-cognito-export-imp-StackSetCheckStatusLambda-64roY3HZtO0F",
+            "RoleId": "AROAVVLBRVWBDDX3XBW7K",
+            "Arn": "arn:aws:iam::389435993474:role/porter-cognito-export-imp-StackSetCheckStatusLambda-64roY3HZtO0F",
+            "CreateDate": "2024-03-15T22:45:39+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-03-15T22:53:40+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "porter-cognito-export-imp-StackSetCheckStatusWorkfl-3FEMTdHtq4r5": {
+            "Path": "/service-role/",
+            "RoleName": "porter-cognito-export-imp-StackSetCheckStatusWorkfl-3FEMTdHtq4r5",
+            "RoleId": "AROAVVLBRVWBK5KXUIIT3",
+            "Arn": "arn:aws:iam::389435993474:role/service-role/porter-cognito-export-imp-StackSetCheckStatusWorkfl-3FEMTdHtq4r5",
+            "CreateDate": "2024-03-15T22:46:01+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "states.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-03-15T22:53:31+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "porter-cognito-export-import-StackSetExecRole-4Gl9Ts0JqHCA": {
+            "Path": "/",
+            "RoleName": "porter-cognito-export-import-StackSetExecRole-4Gl9Ts0JqHCA",
+            "RoleId": "AROAVVLBRVWBKE3I4OI3L",
+            "Arn": "arn:aws:iam::389435993474:role/porter-cognito-export-import-StackSetExecRole-4Gl9Ts0JqHCA",
+            "CreateDate": "2024-03-15T22:45:39+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": "arn:aws:iam::389435993474:root"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-03-15T22:53:26+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "porter-cognito-export-imp-StackSetManagerCustomReso-TTLxvLdESozb": {
+            "Path": "/",
+            "RoleName": "porter-cognito-export-imp-StackSetManagerCustomReso-TTLxvLdESozb",
+            "RoleId": "AROAVVLBRVWBB3G2QN75L",
+            "Arn": "arn:aws:iam::389435993474:role/porter-cognito-export-imp-StackSetManagerCustomReso-TTLxvLdESozb",
+            "CreateDate": "2024-03-15T22:46:24+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "solution-id-SO0126",
+                    "Value": "porter-cognito-export-import-us-east-1"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-03-15T22:51:53+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "hp-enable-security": {
+        "hp-enable-security-HPAWSConfigRecorderRole-1WUT63QZMSXGD": {
+            "Path": "/",
+            "RoleName": "hp-enable-security-HPAWSConfigRecorderRole-1WUT63QZMSXGD",
+            "RoleId": "AROAVVLBRVWBKNANVJE53",
+            "Arn": "arn:aws:iam::389435993474:role/hp-enable-security-HPAWSConfigRecorderRole-1WUT63QZMSXGD",
+            "CreateDate": "2023-09-29T22:52:37+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "config.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-05-07T02:34:54+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-enable-security-HPAWSServiceRoleForSupport-RK4WI0JR3LH2": {
+            "Path": "/",
+            "RoleName": "hp-enable-security-HPAWSServiceRoleForSupport-RK4WI0JR3LH2",
+            "RoleId": "AROAVVLBRVWBH3AQX7766",
+            "Arn": "arn:aws:iam::389435993474:role/hp-enable-security-HPAWSServiceRoleForSupport-RK4WI0JR3LH2",
+            "CreateDate": "2023-09-29T22:52:36+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": "arn:aws:iam::389435993474:root"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {}
+        },
+        "hp-enable-security-HPBackupPlanRole-NB756NQ7D21X": {
+            "Path": "/",
+            "RoleName": "hp-enable-security-HPBackupPlanRole-NB756NQ7D21X",
+            "RoleId": "AROAVVLBRVWBIQGSH44FT",
+            "Arn": "arn:aws:iam::389435993474:role/hp-enable-security-HPBackupPlanRole-NB756NQ7D21X",
+            "CreateDate": "2023-10-13T20:56:34+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "backup.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T05:31:12+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-enable-security-HPCloudTrailLogGroupRole-1DW4Z1UV3YV0G": {
+            "Path": "/",
+            "RoleName": "hp-enable-security-HPCloudTrailLogGroupRole-1DW4Z1UV3YV0G",
+            "RoleId": "AROAVVLBRVWBAIQITUEIZ",
+            "Arn": "arn:aws:iam::389435993474:role/hp-enable-security-HPCloudTrailLogGroupRole-1DW4Z1UV3YV0G",
+            "CreateDate": "2023-09-29T22:52:39+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Sid": "AssumeRole1",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "cloudtrail.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T18:16:24+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-enable-security-HPS3CrossRegionReplicationRole-QpEGLqnNxy02": {
+            "Path": "/",
+            "RoleName": "hp-enable-security-HPS3CrossRegionReplicationRole-QpEGLqnNxy02",
+            "RoleId": "AROAVVLBRVWBKZ5ENWBLV",
+            "Arn": "arn:aws:iam::389435993474:role/hp-enable-security-HPS3CrossRegionReplicationRole-QpEGLqnNxy02",
+            "CreateDate": "2023-10-19T23:00:01+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Sid": "AssumeRoleS3",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": [
+                                "s3.amazonaws.com",
+                                "batchoperations.s3.amazonaws.com"
+                            ]
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-05-06T18:05:44+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-enable-security-HPVPCFlowLogRoleRole-MSK61IRCJ6YK": {
+            "Path": "/",
+            "RoleName": "hp-enable-security-HPVPCFlowLogRoleRole-MSK61IRCJ6YK",
+            "RoleId": "AROAVVLBRVWBOM5Y7HRV7",
+            "Arn": "arn:aws:iam::389435993474:role/hp-enable-security-HPVPCFlowLogRoleRole-MSK61IRCJ6YK",
+            "CreateDate": "2023-09-29T22:52:39+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "vpc-flow-logs.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T18:16:48+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-enable-security-LambdaInspectorDeliveryRole-1N6UL8L4RNUO4": {
+            "Path": "/",
+            "RoleName": "hp-enable-security-LambdaInspectorDeliveryRole-1N6UL8L4RNUO4",
+            "RoleId": "AROAVVLBRVWBEUWNNV3BD",
+            "Arn": "arn:aws:iam::389435993474:role/hp-enable-security-LambdaInspectorDeliveryRole-1N6UL8L4RNUO4",
+            "CreateDate": "2023-09-29T22:52:37+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "RoleLastUsed": {
+                "LastUsedDate": "2023-09-29T22:52:55+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK": {
+        "hp-middleware-sam-HelloPorterM-APIGWCloudWatchRole-18TQ3F7E12KDC": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPorterM-APIGWCloudWatchRole-18TQ3F7E12KDC",
+            "RoleId": "AROAVVLBRVWBAYYS6WWQ5",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPorterM-APIGWCloudWatchRole-18TQ3F7E12KDC",
+            "CreateDate": "2023-07-08T23:23:30+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "apigateway.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-28T09:02:06+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPo-APIGatewaySNSPublishRole-1TW3KP17PETQM": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPo-APIGatewaySNSPublishRole-1TW3KP17PETQM",
+            "RoleId": "AROAVVLBRVWBHMXSVVG6Z",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPo-APIGatewaySNSPublishRole-1TW3KP17PETQM",
+            "CreateDate": "2023-07-08T23:23:30+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "apigateway.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {}
+        },
+        "hp-middleware-sam-HelloPorterM-CareGiverLambdaRole-111R21TAME6XX": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPorterM-CareGiverLambdaRole-111R21TAME6XX",
+            "RoleId": "AROAVVLBRVWBM5OWQ4Y2I",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPorterM-CareGiverLambdaRole-111R21TAME6XX",
+            "CreateDate": "2023-07-08T23:23:30+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2024-04-02T05:21:16+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPorter-EducationContentRole-9K1J72SOEAUY": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPorter-EducationContentRole-9K1J72SOEAUY",
+            "RoleId": "AROAVVLBRVWBFFCCOPEI4",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPorter-EducationContentRole-9K1J72SOEAUY",
+            "CreateDate": "2023-07-08T23:23:30+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-08-15T16:26:31+00:00",
+                "Region": "us-east-1"
+            }
+        },
+        "hp-middleware-sam-HelloPor-MemberForActivationRole-SNVQGCAG8UO3": {
+            "Path": "/",
+            "RoleName": "hp-middleware-sam-HelloPor-MemberForActivationRole-SNVQGCAG8UO3",
+            "RoleId": "AROAVVLBRVWBNJ52PBEHP",
+            "Arn": "arn:aws:iam::389435993474:role/hp-middleware-sam-HelloPor-MemberForActivationRole-SNVQGCAG8UO3",
+            "CreateDate": "2023-07-08T23:23:31+00:00",
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                        },
+                        "Action": "sts:AssumeRole"
+                    }
+                ]
+            },
+            "Description": "",
+            "MaxSessionDuration": 3600,
+            "Tags": [
+                {
+                    "Key": "lambda:createdBy",
+                    "Value": "SAM"
+                }
+            ],
+            "RoleLastUsed": {
+                "LastUsedDate": "2025-09-27T20:22:50+00:00",
+                "Region": "us-east-1"
+            }
+        }
+    }
+}
