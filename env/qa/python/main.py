@@ -39,6 +39,7 @@ from modules.config_module import (
 )
 
 from modules.kms_module import get_kms_key_config
+from modules.lambda_layer_module import get_lambda_layer_config_by_arn
 
 # -----------------------
 # Main Script
@@ -74,6 +75,7 @@ def main():
     all_delivery_channels = {}
     all_config_rules = {}
     all_kms_keys = {}
+    all_lambda_layers = {}
 
     stacks = list_stacks()
     # print(f"📦 Found {len(stacks)} stacks")
@@ -230,6 +232,12 @@ def main():
                 if kms_config:
                     all_kms_keys[rid] = kms_config
 
+            elif rtype == "AWS::Lambda::LayerVersion":
+                print(f"   → Found Lambda Layer: {rid}")
+                layer_config = get_lambda_layer_config_by_arn(rid)
+                if layer_config:
+                    all_lambda_layers[rid] = layer_config
+
     # Save outputs
     if all_buckets:
         with open("../s3.auto.tfvars.json", "w") as f:
@@ -348,6 +356,11 @@ def main():
             json.dump(final_kms_data, f, indent=2)
 
         print("✅ Exported KMS Keys and Aliases → kms.auto.tfvars.json")
+
+    if all_lambda_layers:
+        with open("../lambda_layers.auto.tfvars.json", "w") as f:
+            json.dump({"lambda_layers": all_lambda_layers}, f, indent=2)
+        print("✅ Exported Lambda Layers → lambda_layers.auto.tfvars.json")
 
 
 

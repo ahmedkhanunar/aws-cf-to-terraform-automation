@@ -207,6 +207,15 @@ modules = [
             "aws_kms_key.managed": "",
             "aws_kms_alias.managed": "kms_aliases"
         }
+    },
+    {
+        "json_file": "../lambda_layers.auto.tfvars.json",
+        "json_key": "lambda_layers",
+        "tf_module": "module.lambda_layers",
+        "tf_files": ["../../../modules/lambda_layer/main.tf"],
+        "resources": {
+            "aws_lambda_layer_version.managed": ""
+        }
     }
 
 

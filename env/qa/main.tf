@@ -137,6 +137,13 @@ module "kms" {
   kms_aliases = var.kms_aliases
 }
 
+module "lambda_layers" {
+  source        = "../../modules/lambda_layer"
+  environment   = var.environment
+  tags          = var.tags
+  lambda_layers = var.lambda_layers
+}
+
 
 
 # # module "api_gateway" {
