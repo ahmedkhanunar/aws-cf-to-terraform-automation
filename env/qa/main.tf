@@ -129,6 +129,14 @@ module "config" {
   delivery_channels = var.delivery_channels
 }
 
+module "kms" {
+  source      = "../../modules/kms"
+  environment = var.environment
+  tags        = var.tags
+  kms_keys    = var.kms_keys
+  kms_aliases = var.kms_aliases
+}
+
 
 
 # # module "api_gateway" {

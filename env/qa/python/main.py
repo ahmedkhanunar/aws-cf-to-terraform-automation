@@ -38,6 +38,8 @@ from modules.config_module import (
     get_rule_compliance
 )
 
+from modules.kms_module import get_kms_key_config
+
 # -----------------------
 # Main Script
 # -----------------------
@@ -71,6 +73,7 @@ def main():
     all_config_recorders = {}
     all_delivery_channels = {}
     all_config_rules = {}
+    all_kms_keys = {}
 
     stacks = list_stacks()
     # print(f"📦 Found {len(stacks)} stacks")
@@ -221,6 +224,12 @@ def main():
                         "compliance": rule_status
                     }
 
+            elif rtype == "AWS::KMS::Key":
+                # print(f"   → Found KMS Key: {rid}")
+                kms_config = get_kms_key_config(rid)
+                if kms_config:
+                    all_kms_keys[rid] = kms_config
+
     # Save outputs
     if all_buckets:
         with open("../s3.auto.tfvars.json", "w") as f:
@@ -320,6 +329,26 @@ def main():
         with open("../config.auto.tfvars.json", "w") as f:
             json.dump(config_data, f, indent=2)
         print("✅ Exported AWS Config → config.auto.tfvars.json")
+
+    if all_kms_keys:
+        kms_aliases = {
+            config["alias_name"]: key_id
+            for key_id, config in all_kms_keys.items()
+            if config.get("alias_name")  # Ensure alias is not None
+        }
+
+        # Create final structure for KMS keys and aliases
+        final_kms_data = {
+            "kms_keys": all_kms_keys,
+            "kms_aliases": kms_aliases
+        }
+
+        # Write the data to the final file
+        with open("../kms.auto.tfvars.json", "w") as f:
+            json.dump(final_kms_data, f, indent=2)
+
+        print("✅ Exported KMS Keys and Aliases → kms.auto.tfvars.json")
+
 
 
 if __name__ == "__main__":

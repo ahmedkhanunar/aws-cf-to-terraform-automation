@@ -197,6 +197,16 @@ modules = [
             "aws_config_delivery_channel.managed": "../config.auto.tfvars.json:delivery_channels",
             "aws_config_configuration_recorder_status.managed": ""
         }
+    },
+    {
+        "json_file": "../kms.auto.tfvars.json",
+        "json_key": "kms_keys",
+        "tf_module": "module.kms",
+        "tf_files": ["../../../modules/kms/main.tf"],
+        "resources": {
+            "aws_kms_key.managed": "",
+            "aws_kms_alias.managed": "kms_aliases"
+        }
     }
 
 
@@ -532,6 +542,18 @@ def generate_import_script():
 
                 continue  # skip default handling for config
 
+            elif r_type == "aws_kms_alias":
+                for key_id, key_data in json_data.items():
+                    alias_name = key_data.get("alias_name")
+                    if not alias_name:
+                        continue  # Skip if alias_name isn't defined
+
+                    address = build_resource_address(tf_module, r_type, r_name, alias_name)
+                    quoted_address = f'"{address}"'
+                    import_id = alias_name
+                    lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                continue
+            
             # General (non-nested) handling
             target_data = json_data.get(nested_key, {}) if nested_key else json_data
             for instance_key in target_data:
