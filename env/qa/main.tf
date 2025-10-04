@@ -144,6 +144,14 @@ module "lambda_layers" {
   lambda_layers = var.lambda_layers
 }
 
+module "waf" {
+  source      = "../../modules/waf"
+  environment = var.environment
+  tags        = var.tags
+  ip_sets     = var.ip_sets
+  web_acls    = var.web_acls
+}
+
 
 
 # # module "api_gateway" {

@@ -179,15 +179,6 @@ modules = [
         }
     },
     {
-        "json_file": "../cognito.auto.tfvars.json",
-        "json_key": "identity_pools",
-        "tf_module": "module.cognito",
-        "tf_files": ["../../../modules/cognito/main.tf"],
-        "resources": {
-            "aws_cognito_identity_pool.managed": ""
-        }
-    },
-    {
         "json_file": "../config.auto.tfvars.json",
         "json_key": "recorders",
         "tf_module": "module.config",
@@ -216,10 +207,16 @@ modules = [
         "resources": {
             "aws_lambda_layer_version.managed": ""
         }
+    },
+    {
+        "json_file": "../waf.auto.tfvars.json",
+        "json_key": "web_acls",
+        "tf_module": "module.waf",
+        "tf_files": ["../../../modules/waf/main.tf"],
+        "resources": {
+            "aws_wafv2_web_acl.managed": ""
+        }
     }
-
-
-
 ]
 
 OUTPUT_FILE = "../import.sh"
@@ -562,7 +559,28 @@ def generate_import_script():
                     import_id = alias_name
                     lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
                 continue
-            
+
+            elif r_type == "aws_wafv2_web_acl":
+                for arn, cfg in json_data.items():
+                    # Extract information from the ARN
+                    arn_parts = arn.split("|")  # Split on ':' to isolate the parts of the ARN
+                    print(f"{len(arn_parts)} -- here {arn_parts}");
+                    if len(arn_parts) == 3:
+
+                        name = arn_parts[0]
+                        id = arn_parts[1]
+                        scope = arn_parts[2]
+
+                        # Build the resource address using the format required by Terraform
+                        # address = f"module.waf.aws_wafv2_web_acl.managed['\{name}|{id}|{scope}'\]"
+                        waf_name = f"{name}|{id}|{scope}"
+                        address = build_resource_address(tf_module, r_type, r_name, waf_name)
+                        quoted_address = f'"{address}"'
+                        
+                        # The correct terraform import statement should be
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{id}/{name}/{scope}"')
+                continue  
+
             # General (non-nested) handling
             target_data = json_data.get(nested_key, {}) if nested_key else json_data
             for instance_key in target_data:

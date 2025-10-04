@@ -16,7 +16,7 @@ def get_lambda_layer_config(layer_name, version=None):
                 LayerName=layer_name,
                 VersionNumber=int(version)
             )
-            print(f"Response for {layer_name} version {version}: {json.dumps(response, indent=2)}")  # Debugging line
+            # print(f"Response for {layer_name} version {version}: {json.dumps(response, indent=2)}")  # Debugging line
             layer_versions = [response]
         else:
             # Get all versions
@@ -61,7 +61,7 @@ def get_lambda_layer_config(layer_name, version=None):
         }
 
     except Exception as e:
-        print(f"⚠️ Error fetching Lambda layer {layer_name}: {e}")
+        # print(f"⚠️ Error fetching Lambda layer {layer_name}: {e}")
         return None
 
 # -----------------------
@@ -85,7 +85,7 @@ def list_all_lambda_layers():
         
         return layers
     except Exception as e:
-        print(f"⚠️ Error listing Lambda layers: {e}")
+        # print(f"⚠️ Error listing Lambda layers: {e}")
         return []
 
 
@@ -121,7 +121,7 @@ def get_lambda_layer_config_by_arn(layer_arn):
         # ARN format: arn:aws:lambda:region:account:layer:layer-name:version
         arn_parts = layer_arn.split(':')
         if len(arn_parts) < 8:
-            print(f"⚠️ Invalid layer ARN format: {layer_arn}")
+            # print(f"⚠️ Invalid layer ARN format: {layer_arn}")
             return None
         
         layer_name = arn_parts[6]
@@ -130,5 +130,5 @@ def get_lambda_layer_config_by_arn(layer_arn):
         return get_lambda_layer_config(layer_name, version)
     
     except Exception as e:
-        print(f"⚠️ Error fetching Lambda layer by ARN {layer_arn}: {e}")
+        # print(f"⚠️ Error fetching Lambda layer by ARN {layer_arn}: {e}")
         return None

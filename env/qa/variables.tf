@@ -398,3 +398,35 @@ variable "lambda_layers" {
   }))
   default = {}
 }
+
+variable "ip_sets" {
+  description = "Map of WAFv2 IP sets"
+  type = map(object({
+    name               = string
+    scope              = string
+    description        = optional(string)
+    ip_address_version = string
+    addresses          = optional(list(string))
+    tags               = optional(map(string))
+  }))
+  default = {}
+}
+
+variable "web_acls" {
+  description = "List of Web ACLs to manage"
+  type = map(object({
+    name        = string
+    id          = string
+    arn         = string
+    scope       = string
+    description = string
+    visibility_config = object({
+      SampledRequestsEnabled = bool
+      CloudWatchMetricsEnabled = bool
+      MetricName = string
+    })
+    tags = map(string)
+    ip_sets = list(string)
+  }))
+}
+

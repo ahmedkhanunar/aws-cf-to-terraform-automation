@@ -40,6 +40,8 @@ from modules.config_module import (
 
 from modules.kms_module import get_kms_key_config
 from modules.lambda_layer_module import get_lambda_layer_config_by_arn
+from modules.waf_module import get_web_acl_config, get_ip_set_config
+
 
 # -----------------------
 # Main Script
@@ -76,6 +78,7 @@ def main():
     all_config_rules = {}
     all_kms_keys = {}
     all_lambda_layers = {}
+    all_waf = {"web_acls": {}, "ip_sets": {}}
 
     stacks = list_stacks()
     # print(f"📦 Found {len(stacks)} stacks")
@@ -233,10 +236,22 @@ def main():
                     all_kms_keys[rid] = kms_config
 
             elif rtype == "AWS::Lambda::LayerVersion":
-                print(f"   → Found Lambda Layer: {rid}")
+                # print(f"   → Found Lambda Layer: {rid}")
                 layer_config = get_lambda_layer_config_by_arn(rid)
                 if layer_config:
                     all_lambda_layers[rid] = layer_config
+
+            elif rtype == "AWS::WAFv2::WebACL":
+                print(f"   → Found WAFv2 WebACL: {rid}")
+                web_acl_config = get_web_acl_config(rid)
+                if web_acl_config:
+                    all_waf["web_acls"][rid] = web_acl_config
+
+            elif rtype == "AWS::WAFv2::IPSet":
+                print(f"   → Found WAFv2 IPSet: {rid}")
+                ip_set_config = get_ip_set_config(rid)
+                if ip_set_config:
+                    all_waf["ip_sets"][rid] = ip_set_config
 
     # Save outputs
     if all_buckets:
@@ -362,6 +377,10 @@ def main():
             json.dump({"lambda_layers": all_lambda_layers}, f, indent=2)
         print("✅ Exported Lambda Layers → lambda_layers.auto.tfvars.json")
 
+    if any([all_waf["web_acls"], all_waf["ip_sets"]]):
+        with open("../waf.auto.tfvars.json", "w") as f:
+            json.dump(all_waf, f, indent=2)
+        print("✅ Exported WAF resources → waf.auto.tfvars.json")
 
 
 if __name__ == "__main__":
