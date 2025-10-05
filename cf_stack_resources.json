@@ -1,0 +1,2382 @@
+[
+    {
+        "PhysicalResourceId": "hp-enable-security-NetworkGatewayChangeAlarm-PH8hO0IWS87G",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMid-ScreeningDocToPDF-I3NK42euSSkX",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "table/mw_customer_details|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorte-CognitoMessageTrigger-1HNeD2rKr7R1",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-import-StackSetExecRole-4Gl9Ts0JqHCA",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "table/SecurityQuestionMaster|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-GetEducationalContentFav-kEpdVhD43lSJ",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-AddEducationalContentFav-G1ZrCbiryFLv",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:466eee89-2465-4bdd-8464-4d89033916e5:resource/dynamodb/table/SecurityAnswerMapping:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "main-Provider-Save-Service",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "ProgramEnrollmentHistory-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:49f599f6-9960-47e7-8fa3-66d24bbe0931:resource/dynamodb/table/GuidedExperience:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-CognitoUserImportCloudWat-Pg3EsCBwQim3",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK_GetLambdaLayerVersionArnNew_456VSS2G",
+        "ResourceType": "Custom::GetLambdaLayerArnNew"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddlewareCognito-I676MUB85FO2_GetLambdaLayerVersionArnNew_DNAFCWHW",
+        "ResourceType": "Custom::GetLambdaLayerArnNew"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO-DeleteCareGiverLambdaHttpDelPermissionStag-7V9VLCXVEP4K",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-GetInsuranceInformationL-STUqRSZSWjQn:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "mw_customer_details",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:f15cb073-e035-4563-9cc1-8b8acd094a24:resource/dynamodb/table/mw_member_consent:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-WorkflowMessageBrokerLamb-oiavHK21Umj4",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "acl-01bb6c8bb956e7884",
+        "ResourceType": "AWS::EC2::NetworkAcl"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddlewareCognito-I6-CustomMessageTriggerPermissionCognito-irzSTnqXJsWn",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ExportWorkflowServiceRole-iSlO4whxyoY0",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-GetCareGiverLambda",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-ActivateMember",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:layer:pythonDocxLayer:85",
+        "ResourceType": "AWS::Lambda::LayerVersion"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMiddle-ExceptionEmail-SAuzeNuHcW8d:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "IamPolicyChangeMetricFilter-1VBUlQ05MM8e",
+        "ResourceType": "AWS::Logs::MetricFilter"
+    },
+    {
+        "PhysicalResourceId": "vfzeft1ot2",
+        "ResourceType": "AWS::ApiGateway::RestApi"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:layer:brotliLayer:64",
+        "ResourceType": "AWS::Lambda::LayerVersion"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-import-GlobalTableCreator-3FVHLnFzYBVV",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "main-ScheduleService-Athena-Inbound-Processor",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:states:us-east-1:389435993474:stateMachine:SecondaryUserPoolTableStepFunctions-derGiUYAqKT1",
+        "ResourceType": "AWS::StepFunctions::StateMachine"
+    },
+    {
+        "PhysicalResourceId": "SQSQueueAssessmentInbound-ApproximateAgeOfOldestMessage",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/assessmentservice-assessment-inbound",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "schedule-service-stack-LambdaPermissionProviderSaveApiGateway-eVr8yI6mF3rU",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/assessmentservice-assessment-inbound-dlq",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:9e3b2441-78cb-4feb-bda1-ff9c77a305b2:resource/dynamodb/table/LearnFavouritesPatientPortal:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPVPCFlowLogRoleRole-MSK61IRCJ6YK",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPor-CarefirstScreeningToDoc-cqa0QnGanqMr",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "table/mw_member_consent/index/Type-uuid-index|dynamodb:index:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-CheckMemberForActivation-m0rRx8rwiUQJ",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMidd-GetMemberMapping-jXR1T8DqfICd",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-CheckMemberForActivation-m0rRx8rwiUQJ:82",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:cloudformation:us-east-1:389435993474:stack/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2/aa8f3bc0-0687-11ef-b3e6-0affc351a237",
+        "ResourceType": "AWS::CloudFormation::Stack"
+    },
+    {
+        "PhysicalResourceId": "aws-controltower-ConfigComplianceChangeEventRule",
+        "ResourceType": "AWS::Events::Rule"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:cognito-user-profiles-export-reference-architecture-us-east-1-2fdf65b2-8a5f-4614-a802-9a2cc2238e9a",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:secretsmanager:us-east-1:389435993474:secret:Session_Secret-M88vgl",
+        "ResourceType": "AWS::SecretsManager::Secret"
+    },
+    {
+        "PhysicalResourceId": "69bb9a38-1840-42d7-99f2-319b02d6f3a7",
+        "ResourceType": "AWS::Backup::BackupPlan"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:securityhub:us-east-1:389435993474:subscription/cis-aws-foundations-benchmark/v/1.4.0",
+        "ResourceType": "AWS::SecurityHub::Standard"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-GetEducationalContentFav-kEpdVhD43lSJ:52",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "fa43ecd9-be33-4abe-8f5e-17bb1b65a7b4_69bb9a38-1840-42d7-99f2-319b02d6f3a7",
+        "ResourceType": "AWS::Backup::BackupSelection"
+    },
+    {
+        "PhysicalResourceId": "Case-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "58648bca-1cdf-45fb-9092-67eaa6e0e9e5_69bb9a38-1840-42d7-99f2-319b02d6f3a7",
+        "ResourceType": "AWS::Backup::BackupSelection"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-s3-event-notification-qa",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO82-GetCareGiverLambdaHttpGetPermissionStage-24N2ZFVHJMVS",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorter-ScreeningDocToAthena-EXjtQ5iFGcrZ",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-SQSLa-oybGPF5wYDJN",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-ScreeningDocToAthena",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "osqcgh",
+        "ResourceType": "AWS::ApiGateway::Deployment"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareLambdaLayers-FBMJ3S3ZWLIO-GetLambdaLayerArnNew",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-MHCScreeningToDoc",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "vfzeft1ot2|x6d77k|PUT",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "0p027n",
+        "ResourceType": "AWS::ApiGateway::Deployment"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-hellopo-predatafileprocessings3b-gyubkpnhu5np",
+        "ResourceType": "AWS::S3::BucketPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:cloudformation:us-east-1:389435993474:stack/hp-middleware-sam-HelloPorterMiddlewareLambdaLayers-FBMJ3S3ZWLIO/95b47d00-0687-11ef-8e6d-12a17b4d6f9d",
+        "ResourceType": "AWS::CloudFormation::Stack"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:a8ad042d-9531-43d4-9430-eeeb1bf12703:resource/dynamodb/table/EducationalContentFavourites:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "alias/hp-cloudtrail-key",
+        "ResourceType": "AWS::KMS::Alias"
+    },
+    {
+        "PhysicalResourceId": "SQSQueueAssessmentInboundDLQ-ApproximateAgeOfOldestMessage",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-StackSetConstantsCustomR-Qq0UCk23IfcS",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "NaclChangeMetricFilter-RBKJX4KVB39N",
+        "ResourceType": "AWS::Logs::MetricFilter"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:hp-enable-security-AWSInspectorFindingsDelivery-9QiAACLnxBPY",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-Dyna-7H14TKVBIKCI",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "table/CaregiverRequest|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:securityhub-event-topic-121af450",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "mx8naf",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito--import-jobs-9a2cc2238e9a-us-east-1",
+        "ResourceType": "AWS::S3::Bucket"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPAWSServiceRoleForSupport-RK4WI0JR3LH2",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-CheckWorkflowQueuesLambda-Um1Vzf7catZl",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddlewareCognito-I676MU-GetMemberMappingPermissionCognito-1UMMn8hWRqfj",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-controltower-SecurityNotifications:b894fbe8-75b1-444a-b783-6ea516f94780",
+        "ResourceType": "AWS::SNS::Subscription"
+    },
+    {
+        "PhysicalResourceId": "api-qa.helloporter.com",
+        "ResourceType": "AWS::ApiGateway::DomainName"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMidd-screeningPostEhr-FXLUpO3nTTQK:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "rtb-02fcb7d7964826665",
+        "ResourceType": "AWS::EC2::RouteTable"
+    },
+    {
+        "PhysicalResourceId": "Assessment-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-BackupTableCleanupLambda-AiOnbpyscHYx",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPPatientPortalWAFCloudWatchLogGroup-EhKZAf4JPx8j",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "igw-07a524e41d86bbbfa",
+        "ResourceType": "AWS::EC2::InternetGateway"
+    },
+    {
+        "PhysicalResourceId": "2024/03/15/[$LATEST]e50d7f0af34349d3ae4ac95ee683bbb1",
+        "ResourceType": "Custom::CreateTable"
+    },
+    {
+        "PhysicalResourceId": "hp-en-HPS3C-IFmUznyVkb8R",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "E3VJRL0IUZMNX1",
+        "ResourceType": "AWS::CloudFront::OriginAccessControl"
+    },
+    {
+        "PhysicalResourceId": "subnet-0dabedfcfc4e86f38",
+        "ResourceType": "AWS::EC2::Subnet"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareLambdaLayers-FBMJ3S3ZWLIO-GetLambdaLayerArn",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-imp-StackSetManagerCustomRes-Knlsl4GlijIh",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddlewa-ReadFileData-92tXFN15wKRi",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareSecurityHubAlert-19OZVYS2GMU2Y-SecurityHubAlertFunction",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-HPSal-9uTVKaCEyNth",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:4ba62e17-51c0-40c4-90b0-8c80e12db30d:resource/dynamodb/table/SecurityAnswerMapping:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMiddle-Authentication-LHZaPFc6O06E:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "9aaf786c-ea01-4f2f-87d5-76a82c54641d",
+        "ResourceType": "AWS::Lambda::EventSourceMapping"
+    },
+    {
+        "PhysicalResourceId": "us-east-1_1TwGUgLb3",
+        "ResourceType": "AWS::Cognito::UserPool"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-security-alert-qa",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/main-ScheduleService-DoxymeWebhook",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-LambdaErrorRateMonitoringAlarm-UEz4uLuKTzCw",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "table/Account|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "ProgramEnrollment-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:layer:pyjwtCryptoLayer:81",
+        "ResourceType": "AWS::Lambda::LayerVersion"
+    },
+    {
+        "PhysicalResourceId": "login-qa.helloporter.com",
+        "ResourceType": "AWS::Cognito::UserPoolDomain"
+    },
+    {
+        "PhysicalResourceId": "CloudTrailConfigChangeMetricFilter-LMMsgthqjXap",
+        "ResourceType": "AWS::Logs::MetricFilter"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-GetEducationalContentFav-kEpdVhD43lSJ:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "api-qa.helloporter.com|(none)",
+        "ResourceType": "AWS::ApiGateway::BasePathMapping"
+    },
+    {
+        "PhysicalResourceId": "AssessmentInboundLambdaExecRoleOnSQS",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:71931dc3-f3a9-4d55-a4f0-aac8724a766d:resource/dynamodb/table/mw_customer_details/index/ProgramName-index:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-imp-SolutionConstantsCustomRe-4gSoNPILEGlh",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-HPSQS-8xcJugGVV6IK",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "aws-controltower-BaselineConfigDeliveryChannel",
+        "ResourceType": "AWS::Config::DeliveryChannel"
+    },
+    {
+        "PhysicalResourceId": "main-Doxy-Webhook-Service",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:layer:requestsLayer:134",
+        "ResourceType": "AWS::Lambda::LayerVersion"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-AddEducationalContentFavourites",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPAWSConfigBucketPolicy-12ZLXTTYCIUB3",
+        "ResourceType": "AWS::S3::BucketPolicy"
+    },
+    {
+        "PhysicalResourceId": "nat-00b1ef833622d8c15",
+        "ResourceType": "AWS::EC2::NatGateway"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-Authentication",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ImportScanTableLambdaRole-ze2vuXpvSB2Y",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-AllInsuranceInformationL-nBg6F4yLMc9C",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO-GetEducationalContentFavouritesHttpGetPerm-92KLVSIVE1SO",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-GetLambdaLayerArnNewLambd-dFWumcNbg0yP",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "User-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO8-CaregiverActivationHttpPostPermissionStage-GAKv7Kj6Up83",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "Stack-Impor-DO4JoI9A0JWc",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "table/mw_customer_details|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "n97tps",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-KeyRo-IvWADDdnp4xY",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-CarefirstScreeningToDoc",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-ClearspringScreeningToDoc",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-WorkflowMessageBrokerLam-dfDWVG8f2k8z",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "table/SecurityAnswerMapping|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-expor-ImportNewUsersLambda-xkBvMaUYY3Uf",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-imp-StackCheckerCustomResourc-nZKUTdIgVnJq",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "HPDynamoDBBackupVault",
+        "ResourceType": "AWS::Backup::BackupVault"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPor-ExceptionEmailLambdaRole-X7TyoxD8Tkk0",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "tniyh4hl2h|ff5b4n|POST",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "Event-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPS3CrossRegionReplicationRole-QpEGLqnNxy02",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-expo-ImportScanTableLambda-8ZghCcmuM7a5",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "assessment-service-stack-CloudwatchAlarmReadCapUnitsDynamoAssessmentTable-HRAzCsH8y7j1",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "subnet-09d27dee6adbaea7c",
+        "ResourceType": "AWS::EC2::Subnet"
+    },
+    {
+        "PhysicalResourceId": "aws-waf-logs-qa-389435993474",
+        "ResourceType": "AWS::S3::Bucket"
+    },
+    {
+        "PhysicalResourceId": "ManagementConsoleAuthFailureMetricFilter-BDmJhHErcysf",
+        "ResourceType": "AWS::Logs::MetricFilter"
+    },
+    {
+        "PhysicalResourceId": "table/mw_member_eob|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "mw_member_file_exceptions",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-imp-StackSetCheckStatusLambda-64roY3HZtO0F",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-s3-event-notification-qa",
+        "ResourceType": "AWS::SNS::TopicPolicy"
+    },
+    {
+        "PhysicalResourceId": "hp-cloudtrail-qa-bucket",
+        "ResourceType": "AWS::S3::Bucket"
+    },
+    {
+        "PhysicalResourceId": "SolutionConstantsCustomResource",
+        "ResourceType": "Custom::SolutionConstants"
+    },
+    {
+        "PhysicalResourceId": "mw_member_consent",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "table/LearnFavouritesPatientPortal|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "vfzeft1ot2|mwv1n3|POST",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "porte-Secon-rqyouv6Zht1g",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "table/SecurityAnswerMapping|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "mw_member_program_detail",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-GetInsuranceInformationL-STUqRSZSWjQn",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "ff5b4n",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-DeletingKmsCmkAlarm-QeKVUUjmLUu8",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "rtb-09f61f0e7da6f66f8|0.0.0.0/0",
+        "ResourceType": "AWS::EC2::Route"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:key-rotation-notification-QA-121a7f20",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "vfzeft1ot2|n97tps|POST",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:secretsmanager:us-east-1:389435993474:secret:SF_SECRETS-d28gxL",
+        "ResourceType": "AWS::SecretsManager::Secret"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:e56afb5d-5876-47cd-bc4c-de7de842b509:resource/dynamodb/table/mw_member_eob:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ImportWorkflowServiceRole-pNzYhw9eGhhz",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddle-Authentication-LHZaPFc6O06E",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "table/Account|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-ConfigChangeAlarm-s7GJBpQgUUEC",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2_GetLambdaLayerVersionArnNew_9QEFDKQS",
+        "ResourceType": "Custom::GetLambdaLayerArnNew"
+    },
+    {
+        "PhysicalResourceId": "table/EducationalContentFavourites|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "mw_member_contact",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "patient-portal-fe-qa-389435993474",
+        "ResourceType": "AWS::S3::Bucket"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-BackupTableCleanupLambdaR-dUaP6hknjEEb",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-ScreeningDocToPDF",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/export-workflow-2fdf65b2-8a5f-4614-a802-9a2cc2238e9a-dlq",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterM-CaregiverActivation-6rWuvLOMitB7:101",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:securityhub:us-east-1:389435993474:subscription/aws-foundational-security-best-practices/v/1.0.0",
+        "ResourceType": "AWS::SecurityHub::Standard"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterM-CareGiverLambdaRole-111R21TAME6XX",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-CheckUserPoolConfigLambda-BCwUPN9ciYfW",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-imp-StackSetCheckStatusWorkfl-3FEMTdHtq4r5",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-ExceptionEmail",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddlewareCognito-I-CognitoMessageTriggerCognitoPermission-ZmeBLDrurYS3",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorte-PreDataQueueLambdaRole-YgUfcyp2iyzz",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-SecurityHubAlertFunction-gG3LKqRBnaTe",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "table/mw_test_token|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "sf_hra_screening_data",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO8234-GetMemberConsentHttpGetPermissionStage-6OOR2QZ0D76W",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPPatientPortalWAFLogBucketPo-Z50CF0JIJQZS",
+        "ResourceType": "AWS::S3::BucketPolicy"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-import-GlobalTableCheckerRole-5W2a8xTXzplx",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/hp-middleware-sam-HelloPorterMiddlewareOtherRes-ExceptionEmailQueue-ZwQ0jRQUYpV7",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "prod",
+        "ResourceType": "AWS::ApiGateway::Stage"
+    },
+    {
+        "PhysicalResourceId": "table/mw_contract_eob|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorte-DeleteCareGiverLambda-yhtfKongYH1g:32",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:layer:pyjwtLayer:75",
+        "ResourceType": "AWS::Lambda::LayerVersion"
+    },
+    {
+        "PhysicalResourceId": "scheduleservice-mapping",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "SQSQueueScheduleServiceDoxymeWebhook-ApproximateAgeOfOldestMessage",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "hp-en-Priva-ADQASEGRMOMB",
+        "ResourceType": "AWS::EC2::NetworkAclEntry"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-Lamb-65AV7ASSJLBI",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterM-AetnaScreeningToDoc-ZZzyB6P3V5Q8",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMidd-GetMemberConsent-BfxHtGEmdEYH:5",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-enable-security-LambdaInspectorFindingNotificat-FWO1cSIb1TAg:46",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "448618645447|us-east-2",
+        "ResourceType": "AWS::Config::AggregationAuthorization"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-DeleteEducationalContent-Rj8KHUqlP2Hh",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "1v9t0iwxd1|gp2vn8|POST",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "x6d77k",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-ex-ImportNewUsersLambdaRole-OAa15PnMQKfo",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-DeleteInsuranceInformati-tiwxaf6yNAxS",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-export-ListGroupsLambdaRole-9ZWiuWrx85dm",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "us-east-1_JxZRAdU8m",
+        "ResourceType": "AWS::Cognito::UserPool"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterM-CaregiverActivation-6rWuvLOMitB7:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "hp-login-qa",
+        "ResourceType": "AWS::Cognito::UserPoolDomain"
+    },
+    {
+        "PhysicalResourceId": "E3344M0F154ZBZ",
+        "ResourceType": "AWS::CloudFront::Distribution"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorter-EducationContentRole-9K1J72SOEAUY",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMiddle-ExceptionEmail-SAuzeNuHcW8d:33",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMiddlewa-ReadFileData-92tXFN15wKRi:53",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-SFTPC-i4IcQliIVPzO",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-SalesforceScreeningDataQu-otdwyY9c3UtE",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:9c36bf26-5c76-4ee1-b8cd-59e6d33f9b2d:resource/dynamodb/table/mw_member_consent/index/Type-uuid-index:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:securityhub-event-topic-121af450",
+        "ResourceType": "AWS::SNS::TopicPolicy"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ImportCheckNewUserPoolLa-556343XFd6OI",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito--import-jobs-9a2cc2238e9a-us-east-1",
+        "ResourceType": "AWS::S3::BucketPolicy"
+    },
+    {
+        "PhysicalResourceId": "/aws/vendedlogs/states/ExportWorkflow-us-east-1-porter-cognito-export-import",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-CheckExecutionsLambdaRole-BudeRisKfhyg",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "mw_member_eob",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "3h3n6dv8n7iljev1oo6uds7khg",
+        "ResourceType": "AWS::Cognito::UserPoolClient"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-import-GlobalTableChecker-N5FE8rCZvpE2",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-HelloPorterMiddlewareAPI-qa",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "mw_test_token",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "vfzeft1ot2|121zv5|POST",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "Account",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "Program-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-GetLambdaLayerArnLambdaRo-kUMYYEt0O0X4",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "ConfigChangeMetricFilter-z2Y5cWC2S4qH",
+        "ResourceType": "AWS::Logs::MetricFilter"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-CaregiverActivation",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:securityhub:us-east-1:389435993474:hub/default",
+        "ResourceType": "AWS::SecurityHub::Hub"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-DeleteInsuranceInformati-tiwxaf6yNAxS:32",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "table/mw_customer_details/index/ProgramName-index|dynamodb:index:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPCloudTrailLogGroupRole-1DW4Z1UV3YV0G",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:hp-enable-security-AWSInspectorFindings-4fkEkT49bK3N",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-AetnaScreeningToDoc",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "alias/hp-s3-key",
+        "ResourceType": "AWS::KMS::Alias"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPCloudTrailLogGroup-4le4Jtf1lYZ0",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMid-MHCScreeningToDoc-vD09wUSFB7mJ",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "Stack-Expor-nuOUODNlFJpS",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-DeleteCareGiverLambda",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO8-GetSecurityQuestionsHttpGetPermissionStage-LGfjxtjHfYA9",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "table/mw_member_consent|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "dfu88k",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/export-workflow-2fdf65b2-8a5f-4614-a802-9a2cc2238e9a",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-ManagementConsoleAuthFailureAlarm-cYb8v8ZOtk3x",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-DeleteInsuranceInformati-tiwxaf6yNAxS:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-CheckMemberForActivation-m0rRx8rwiUQJ:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "mwv1n3",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "vfzeft1ot2|3ug5m7|POST",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "hp-en-Hello-ZAE1M261USI6",
+        "ResourceType": "AWS::EC2::VPCGatewayAttachment"
+    },
+    {
+        "PhysicalResourceId": "APIGatewayWAF-QA|0a011ff8-a1f5-401b-84e7-1c6893f3ee78|REGIONAL",
+        "ResourceType": "AWS::WAFv2::WebACL"
+    },
+    {
+        "PhysicalResourceId": "table/GuidedExperience|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "mw_cognito_user_session",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:layer:pandasLayer:84",
+        "ResourceType": "AWS::Lambda::LayerVersion"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-LambdaInspectorDeliveryRole-1N6UL8L4RNUO4",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "SalesforceScreeningDataQueueNew-ApproximateAgeOfOldestMessage",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPVPCFlowLogGroup-JDY7Ygh2FMpe",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "8cb5205e-3547-4854-b1ba-6877b5dd3c0f",
+        "ResourceType": "AWS::CloudFront::ResponseHeadersPolicy"
+    },
+    {
+        "PhysicalResourceId": "ExceptionEmailQueue-ApproximateAgeOfOldestMessage",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "hp-cloudtrail-accesslogqa-bucket",
+        "ResourceType": "AWS::S3::Bucket"
+    },
+    {
+        "PhysicalResourceId": "Account-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorter-AddSecurityQuestions-8g6ezuyicLhs:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-security-alert-qa",
+        "ResourceType": "AWS::SNS::TopicPolicy"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddle-ActivateMember-YRoW1jXgj2YY",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPAWSConfigRecorderRole-1WUT63QZMSXGD",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-DeleteEducationalContent-Rj8KHUqlP2Hh:50",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:506ac732-375a-49b7-9d03-252db6c09283:resource/dynamodb/table/mw_test_token:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-SFTPCopyScanDeleteFuncti-xZinrAsRYUC8:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "aws-waf-logs-HPAPIGatewayWAF-389435993474",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "SalesforcePractionerQueueNew-ApproximateAgeOfOldestMessage",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-enable-security-LambdaInspectorFindingNotificat-FWO1cSIb1TAg:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "537gp7",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "table/SecurityQuestionMaster|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "table/mw_contract_eob|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "table/mw_customer_details/index/ProgramName-index|dynamodb:index:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO823410-ActivateMemberHttpGetPermissionStage-9I060TH1QA00",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPAWSConfigRecorder-1EMF8X2Y9KDBA",
+        "ResourceType": "AWS::Config::ConfigurationRecorder"
+    },
+    {
+        "PhysicalResourceId": "rtb-014429bf12104dfd0|0.0.0.0/0",
+        "ResourceType": "AWS::EC2::Route"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO82-AllCareGiverLambdaHttpGetPermissionStage-ACG7DVI19ZX0",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "table/EducationalContentFavourites|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "hp-awsconfig-qa-bucket",
+        "ResourceType": "AWS::S3::Bucket"
+    },
+    {
+        "PhysicalResourceId": "2nsdp3b87vo810bnpmigud29ci",
+        "ResourceType": "AWS::Cognito::UserPoolClient"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-expor-ExportUsersLambdaRole-7PBGy1JGlGbY",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "Task-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-SFTPC-XMns86gQ2cIV",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "assessmentservice-Assessment-Inbound-On-SQS",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:cloudformation:us-east-1:389435993474:stack/hp-middleware-sam-HelloPorterMiddlewareSecurityHubAlert-19OZVYS2GMU2Y/121af450-0688-11ef-8257-12ca1a195ec7",
+        "ResourceType": "AWS::CloudFormation::Stack"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-Memb-1DNVMX0PJEI49",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "publish-inspector-findings",
+        "ResourceType": "AWS::Events::Rule"
+    },
+    {
+        "PhysicalResourceId": "7p26uh",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMiddle-Authentication-LHZaPFc6O06E:174",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:cloudformation:us-east-1:389435993474:stack/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK/646d43b0-1de6-11ee-a98d-0a35cae1ea77",
+        "ResourceType": "AWS::CloudFormation::Stack"
+    },
+    {
+        "PhysicalResourceId": "vfzeft1ot2|mwv1n3|OPTIONS",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMiddlewa-ReadFileData-92tXFN15wKRi:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-CheckUserPoolConfigLambd-1qXflHHiHEah",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:states:us-east-1:389435993474:stateMachine:StackSetCheckStatusWorkflow-o9HrTcAjPF0K",
+        "ResourceType": "AWS::StepFunctions::StateMachine"
+    },
+    {
+        "PhysicalResourceId": "rtbassoc-0a5c476108a62702d",
+        "ResourceType": "AWS::EC2::SubnetRouteTableAssociation"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMi-AllCareGiverLambda-aYfHa2MSLN0r",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "mw_member_details",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "hp-en-Priva-X9MG8V4XRFGW",
+        "ResourceType": "AWS::EC2::NetworkAclEntry"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-GetLa-W9EGWrJFGNnU",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "4b0031ba-9593-4de2-a4e6-5a9168ba7e22",
+        "ResourceType": "AWS::Lambda::EventSourceMapping"
+    },
+    {
+        "PhysicalResourceId": "vfzeft1ot2|3ug5m7|PUT",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-SFTPCopyScanDeleteLambdaR-sqbXm3taaQDY",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMi-GetCareGiverLambda-alMd0ZogMFvn:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO-AuthenticationProxyApiGreedyPermissionStag-P0VBDDR9PHSF",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:securityhub:us-east-1:389435993474:subscription/nist-800-53/v/5.0.0",
+        "ResourceType": "AWS::SecurityHub::Standard"
+    },
+    {
+        "PhysicalResourceId": "PatientPortalWAF-qa|af608084-940c-477d-a16c-4e9ce6dd6a90|CLOUDFRONT",
+        "ResourceType": "AWS::WAFv2::WebACL"
+    },
+    {
+        "PhysicalResourceId": "table/mw_plan_program|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:apigateway:us-east-1::/restapis/tniyh4hl2h/stages/qa|arn:aws:wafv2:us-east-1:389435993474:regional/webacl/APIGatewayWAF-QA/0a011ff8-a1f5-401b-84e7-1c6893f3ee78",
+        "ResourceType": "AWS::WAFv2::WebACLAssociation"
+    },
+    {
+        "PhysicalResourceId": "patient-portal-fe-qa-389435993474",
+        "ResourceType": "AWS::S3::BucketPolicy"
+    },
+    {
+        "PhysicalResourceId": "PreDataQueue-ApproximateAgeOfOldestMessage",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:50aaa6ce-2e8e-4b44-8c40-0d370d5cebd1:resource/dynamodb/table/mw_contract_eob:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-imp-SecondaryUserPoolTableSte-AojbPJtAK3aL",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-DeleteInsuranceInformationLambda",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "8a629415-8d44-49c1-9e6f-b7749a72f376",
+        "ResourceType": "AWS::Lambda::EventSourceMapping"
+    },
+    {
+        "PhysicalResourceId": "Resources-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/import-new-users-2fdf65b2-8a5f-4614-a802-9a2cc2238e9a-updates",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "FollowUp-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:ffdfa39f-2e65-4682-9a4d-f2735305cfa8:resource/dynamodb/table/mw_plan_program:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "448618645447|ap-southeast-2",
+        "ResourceType": "AWS::Config::AggregationAuthorization"
+    },
+    {
+        "PhysicalResourceId": "table/mw_member_eob|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPCloudTrailBucketPolicy-NQ347ZIJDG9H",
+        "ResourceType": "AWS::S3::BucketPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMiddle-ActivateMember-YRoW1jXgj2YY:76",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMidd-screeningPostEhr-FXLUpO3nTTQK:55",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "448618645447|us-east-1",
+        "ResourceType": "AWS::Config::AggregationAuthorization"
+    },
+    {
+        "PhysicalResourceId": "/aws/vendedlogs/states/SecondaryUserPoolTableStepFunctions-us-east-1-porter-cognito-export-import",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "guardduty-finding-email",
+        "ResourceType": "AWS::Events::Rule"
+    },
+    {
+        "PhysicalResourceId": "assessment-service-stack-CloudwatchAlarmWriteCapUnitsDynamoAssessmentTable-mhUuKv1Byv6m",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "DynamoDBScalingRole",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-StackSetConstantsCustomRe-M7jvlHfueXlg",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:ca0f6b42-09b5-45cb-a2a5-7c74af796b5f:resource/dynamodb/table/Account:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/hp-middleware-sam-HelloPorterMiddlewareOtherResources--PreDataQueue-DbbgkzLBFUlF",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "70tybs",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-import-StackSetAdminRole-RZenqtoS6Mek",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "EducationalContentFavourites",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:c4baae06-15b4-4f29-abb7-f06a6326c1c9:resource/dynamodb/table/CaregiverRequest:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-hellopo-predatafileprocessings3b-gyubkpnhu5np",
+        "ResourceType": "AWS::S3::Bucket"
+    },
+    {
+        "PhysicalResourceId": "44.216.128.107",
+        "ResourceType": "AWS::EC2::EIP"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO-DeleteEducationalContentFavouritesHttpGetP-K1DV8ZD3MFUC",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "main-ScheduleServiceGatewayRoleForSQS",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "LearnFavouritesPatientPortal",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "aclassoc-0c78d7504a6dd0e07",
+        "ResourceType": "AWS::EC2::SubnetNetworkAclAssociation"
+    },
+    {
+        "PhysicalResourceId": "i1o002",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "mw_plan_program",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-controltower-SecurityNotifications",
+        "ResourceType": "AWS::SNS::TopicPolicy"
+    },
+    {
+        "PhysicalResourceId": "StackSetManagerCustomResource",
+        "ResourceType": "Custom::StackSet"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddl-RotateKeyPython-pSBIYFL1ahf4",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-ScreeningPostEhr",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "OrganizationChangeMetricFilter-zpHpi0biq8Wn",
+        "ResourceType": "AWS::Logs::MetricFilter"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMi-AllCareGiverLambda-aYfHa2MSLN0r:32",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "mw_member_address",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "schedule-service-stack-CloudwatchAlarmReadCapUnitsDynamoAssessmentTable-GsfqxxmttEUN",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:layer:redisLayer:64",
+        "ResourceType": "AWS::Lambda::LayerVersion"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterM-APIGWCloudWatchRole-18TQ3F7E12KDC",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "eec571926cf315f5430a23b5616f368a",
+        "ResourceType": "AWS::GuardDuty::Detector"
+    },
+    {
+        "PhysicalResourceId": "table/mw_cognito_user_session|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "37553ef9-d86b-4dfe-b863-2c1c0dce5446",
+        "ResourceType": "AWS::Lambda::EventSourceMapping"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO-AddSecurityQuestionsHttpPostPermissionStage-2eRytp1kw9dn",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "table/mw_member_consent/index/Type-uuid-index|dynamodb:index:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "dad0205d-129f-4c68-b288-e32bdbf885dd",
+        "ResourceType": "AWS::KMS::Key"
+    },
+    {
+        "PhysicalResourceId": "NetworkGatewayChangeMetricFilter-LECuErrMx26l",
+        "ResourceType": "AWS::Logs::MetricFilter"
+    },
+    {
+        "PhysicalResourceId": "schedule-service-stack-CloudwatchAlarmWriteCapUnitsDynamoAssessmentTable-oCe074iieHP3",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "vrz414",
+        "ResourceType": "AWS::ApiGateway::Deployment"
+    },
+    {
+        "PhysicalResourceId": "pxfhqs",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "GuidedExperience",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-GetMemberConsent",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-AddEducationalContentFav-G1ZrCbiryFLv:45",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMidd-screeningPostEhr-FXLUpO3nTTQK",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-ConfigDeliveryChannel-EZNDU83JZ8DH",
+        "ResourceType": "AWS::Config::DeliveryChannel"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:securityhub-emailalert-topic-121af450",
+        "ResourceType": "AWS::SNS::TopicPolicy"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPor-MemberForActivationRole-SNVQGCAG8UO3",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:23aae764-56a3-46f0-b7dc-4c3bf289ff8a:resource/dynamodb/table/GuidedExperience:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "aws-controltower-BaselineConfigRecorder",
+        "ResourceType": "AWS::Config::ConfigurationRecorder"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:73d58f1b-1b65-4a38-a74f-7a60ea8f062f:resource/dynamodb/table/mw_customer_details/index/ProgramName-index:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-import-GlobalTableCreatorRole-zfndFH02HRfM",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "key-rotation-notification-QA-121a7f20",
+        "ResourceType": "AWS::Scheduler::Schedule"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorter-AddSecurityQuestions-8g6ezuyicLhs",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:0fc070fd-a767-4a0e-955a-065e9e2d45ac:resource/dynamodb/table/Account:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-export-i-ExportUsersLambda-Lozzet4QymGL",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:e40efd1f-a25b-41e9-b463-480a2654ab07:resource/dynamodb/table/SecurityQuestionMaster:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:38d6a27d-5471-41ca-9a9b-79e7bca3f50b:resource/dynamodb/table/mw_plan_program:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-APIGatewaySNSPublishRole-1TW3KP17PETQM",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "t5mtyl",
+        "ResourceType": "AWS::ApiGateway::Deployment"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ImportCheckImportJobLambd-PkUb0byCnF3U",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-MHCSc-PN5lKLvQB6r2",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "table/mw_member_consent|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-AddSecurityQuestions",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:states:us-east-1:389435993474:stateMachine:ImportWorkflow-yfzkkgbAbcea",
+        "ResourceType": "AWS::StepFunctions::StateMachine"
+    },
+    {
+        "PhysicalResourceId": "mw_member_mapping",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-AllCareGiverLambda",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/aws-controltower-NotificationForwarder",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "448618645447|us-west-2",
+        "ResourceType": "AWS::Config::AggregationAuthorization"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:cloudformation:us-east-1:389435993474:stack/hp-middleware-sam-HelloPorterMiddlewareDynamoDBTables-7W1IXI3G7QRT/95cc23b0-0687-11ef-9694-0ebad847b2cf",
+        "ResourceType": "AWS::CloudFormation::Stack"
+    },
+    {
+        "PhysicalResourceId": "table/mw_test_token|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:securityhub-event-topic-121af450:16dd7f6d-e0db-4f21-8c2c-66fc838636d8",
+        "ResourceType": "AWS::SNS::Subscription"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:securityhub-emailalert-topic-121af450",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "SF_GmsDaily_Output-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:231e9733-b1dc-40ff-813d-8ba7cd73afe4:resource/dynamodb/table/mw_contract_eob:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-guardduty-findings-qa",
+        "ResourceType": "AWS::SNS::TopicPolicy"
+    },
+    {
+        "PhysicalResourceId": "3ug5m7",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "fl-0b7bb86d5b2a9b0b1",
+        "ResourceType": "AWS::EC2::FlowLog"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddlewareSecu-SecurityHubAlertFunctionSecurityHubEmailAle-kYBiVwzzYHv9",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-Secur-nItzYEsHPdrg",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "rtb-014429bf12104dfd0",
+        "ResourceType": "AWS::EC2::RouteTable"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:2a22cdf0-57e3-4e68-9c37-0466168dd2ce:resource/dynamodb/table/mw_cognito_user_session:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "table/mw_plan_program|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "rtb-02fcb7d7964826665|0.0.0.0/0",
+        "ResourceType": "AWS::EC2::Route"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-DeleteEducationalContentFavourites",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-LambdaInspectorFindingNotificat-FWO1cSIb1TAg",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-ReadFileData",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-CloudTrailConfigChangeAlarm-UjOzmy8QfAz8",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddlewareOtherRes-AllowS3ToCallSFTPCopyScanDeleteFunction-wxZqOraB8mQw",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/hp-middleware-sam-HelloPorterMiddle-SalesforceScreeningDataQueueNew-5ZmARyVCcx7G",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "Lab-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:cloudformation:us-east-1:389435993474:stack/hp-middleware-sam-HelloPorterMiddlewareRedisCache-TMC0ZQKH10AO/335ac220-661f-11ef-b1d0-0e32238b4aad",
+        "ResourceType": "AWS::CloudFormation::Stack"
+    },
+    {
+        "PhysicalResourceId": "vfzeft1ot2|x6d77k|POST",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "StackSet-AWSControlTowerBP-BASELINE-CLOUDWATCH-d3157eea-cc01--SNSInvokeLambdaPermission-F0cR3bBSHvPe",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "StackCheckerCustomResource",
+        "ResourceType": "Custom::StackChecker"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-config-qa",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "main-ScheduleServiceLambdaSQSExecRole",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorter-GetSecurityQuestions-j3g0wsPErO5i:4",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO-AddEducationalContentFavouritesHttpGetPerm-KD0CPE9ONRGO",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:states:us-east-1:389435993474:stateMachine:ExportWorkflow-riXSCKbzZE1g",
+        "ResourceType": "AWS::StepFunctions::StateMachine"
+    },
+    {
+        "PhysicalResourceId": "assessmentservice-mapping",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/main-ScheduleService-AppointmentInbound-DLQ.fifo",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-CheckWorkflowQueuesLambd-1LdY7qdyyjtD",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-CognitoMessageTriggerRole-kRBVEAOpx1IK",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMi-AllCareGiverLambda-aYfHa2MSLN0r:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:5ea836fc-60f0-4fc3-8cfc-0990c90e8f12:resource/dynamodb/table/mw_cognito_user_session:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "7bah2n1li7uipfdacomp8njmlr",
+        "ResourceType": "AWS::Cognito::UserPoolClient"
+    },
+    {
+        "PhysicalResourceId": "/aws/vendedlogs/states/StackSetCheckStatusWorkflow-us-east-1-porter-cognito-export-import",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "c343c344-dd84-401d-98fe-596051a811f6",
+        "ResourceType": "AWS::Lambda::EventSourceMapping"
+    },
+    {
+        "PhysicalResourceId": "aclassoc-0dc9a531c6d0dc7fa",
+        "ResourceType": "AWS::EC2::SubnetNetworkAclAssociation"
+    },
+    {
+        "PhysicalResourceId": "AssessmentServiceRoleForSQS",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/main-ScheduleService-DoxymeWebhook-DLQ",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/import-new-users-2fdf65b2-8a5f-4614-a802-9a2cc2238e9a-dlq",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "121zv5",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-guardduty-findings-qa",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-AddEducationalContentFav-G1ZrCbiryFLv:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:layer:patientProxyLayer:141",
+        "ResourceType": "AWS::Lambda::LayerVersion"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO-DeleteInsuranceInformationLambdaHttpDelPer-1BIBAL5YUGLDZ",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorter-AddSecurityQuestions-8g6ezuyicLhs:5",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-PreDataFileProcessingLamb-QI8x6xVTCrMO",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:67e69323-69d0-4b00-9d6c-64129f0ed09b:resource/dynamodb/table/mw_member_consent:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "vpc-014c0cbc184161054",
+        "ResourceType": "AWS::EC2::VPC"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-AllInsuranceInformationL-nBg6F4yLMc9C:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMidd-GetMemberConsent-BfxHtGEmdEYH",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:securityhub:us-east-1:389435993474:subscription/pci-dss/v/3.2.1",
+        "ResourceType": "AWS::SecurityHub::Standard"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-IamPolicyChangeAlarm-p4g8xNHetrEk",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:secretsmanager:us-east-1:389435993474:secret:Api_Token-lprIyt",
+        "ResourceType": "AWS::SecretsManager::Secret"
+    },
+    {
+        "PhysicalResourceId": "VoiceCall-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::Flow"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPBackupPlanRole-NB756NQ7D21X",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-OrganizationChangeAlarm-tUD4RvNB8PyV",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorte-CenteneScreeningToDoc-lvujRkMfVCt0",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-CenteneScreeningToDoc",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-imp-StackSetManagerCustomReso-TTLxvLdESozb",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "table/LearnFavouritesPatientPortal|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:d2ce6864-c309-4be7-a61d-81665a2cc9fd:resource/dynamodb/table/mw_member_consent/index/Type-uuid-index:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-imp-StackCheckerCustomResour-PXQUqC3Elwqu",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "DeletingKmsCmkMetricFilter-mboqtw6SHqRX",
+        "ResourceType": "AWS::Logs::MetricFilter"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorte-DeleteCareGiverLambda-yhtfKongYH1g:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "subnet-0aa04b9d682389ba2",
+        "ResourceType": "AWS::EC2::Subnet"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ImportCheckNewUserPoolLam-jo2stxmIzn3L",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:layer:CerberusLayer:77",
+        "ResourceType": "AWS::Lambda::LayerVersion"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-expor-ExportGroupLambdaRole-DGQLpCTxJp9G",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:secretsmanager:us-east-1:389435993474:secret:Activation_Secret-C8Z2RO",
+        "ResourceType": "AWS::SecretsManager::Secret"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:7db6a938-988c-479c-835f-c4a5769efd27:resource/dynamodb/table/mw_test_token:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:cloudformation:us-east-1:389435993474:stack/hp-middleware-sam-HelloPorterMiddlewareCognito-I676MUB85FO2/6beb6c20-06b6-11ef-9e4f-0afff688aa71",
+        "ResourceType": "AWS::CloudFormation::Stack"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-DeleteEducationalContent-Rj8KHUqlP2Hh:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:cloudformation:us-east-1:389435993474:stack/hp-middleware-sam-HelloPorterMiddlewareAPIResources-1H1GHPBLRB0TH/95617c90-221f-11f0-9cbe-0ef979303e2d",
+        "ResourceType": "AWS::CloudFormation::Stack"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-KeyRo-9jSWRdHmL6LT",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-SFMEmberBenefitLambdaRole-Je7L25oxBFYu",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "table/CaregiverRequest|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddle-ExceptionEmail-SAuzeNuHcW8d",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMi-GetCareGiverLambda-alMd0ZogMFvn",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareKeyRotation-1XBGJUYTW1GDR-RotateKeyPython",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ExportUsersInGroupLambdaR-OiGtcuoOP6iW",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-SecurityHubAlertLamndaRol-srWlOCJEwvWu",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-mid-ApiGW-klctTfIvsxNC",
+        "ResourceType": "AWS::ApiGateway::Account"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-SFTPCopyScanDeleteFuncti-xZinrAsRYUC8:33",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "SecurityAnswerMapping",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-GetMemberMappingLambdaRol-MkDszb9hJowO",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorter-GetSecurityQuestions-j3g0wsPErO5i",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ImportCheckImportJobLamb-ZfeQtHbsEaSK",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPor-PorterSQSSendMessageRole-75NWa4mlBPZo",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "table/GuidedExperience|dynamodb:table:WriteCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "448618645447|eu-west-1",
+        "ResourceType": "AWS::Config::AggregationAuthorization"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddlewareCognito-I676MU-GetMemberMappingCognitoPermission-RevcwVjMPLW7",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPor-KeyRotationSchedulerRole-k9YhHorScbxG",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "SQSQueueScheduleServiceAppointmentInboundfifo-ApproximateAgeOfOldestMessage",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterM-CaregiverActivation-6rWuvLOMitB7",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMid-GetLambdaLayerArn-IdMvPpRFasUi",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ExportWorkflowEventRuleRo-n5VFedVAH2OH",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "SecurityQuestionMaster",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/import-new-users-2fdf65b2-8a5f-4614-a802-9a2cc2238e9a",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-SFTPCopyScanDeleteFunction",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-config-qa",
+        "ResourceType": "AWS::SNS::TopicPolicy"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/main-ScheduleService-AppointmentInbound.fifo",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:98f2b747-39c2-4522-be2d-b163da92b7e7:resource/dynamodb/table/mw_member_eob:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-GetEducationalContentFavourites",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-exp-ExportWorkflowEventRule-ujNKuVYpsK6s",
+        "ResourceType": "AWS::Events::Rule"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:cloudformation:us-east-1:389435993474:stack/hp-middleware-sam-HelloPorterMiddlewareSecretManager-1KNM5ZEPTIF05/95dec150-0687-11ef-aac6-126a971edc61",
+        "ResourceType": "AWS::CloudFormation::Stack"
+    },
+    {
+        "PhysicalResourceId": "fccde591-da03-443c-83c2-fa8b853e065e",
+        "ResourceType": "AWS::Lambda::EventSourceMapping"
+    },
+    {
+        "PhysicalResourceId": "hp-en-Priva-FC2KEUEAYO75",
+        "ResourceType": "AWS::EC2::NetworkAclEntry"
+    },
+    {
+        "PhysicalResourceId": "scheduLambdGiR8IQE8YQyh",
+        "ResourceType": "AWS::ApiGateway::Stage"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:secretsmanager:us-east-1:389435993474:secret:Athena_Preview-pnTcUW",
+        "ResourceType": "AWS::SecretsManager::Secret"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-imp-SolutionConstantsCustomR-wC2XlisjSnLB",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-redisoss-qa",
+        "ResourceType": "AWS::ElastiCache::ServerlessCache"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareOtherResources-38LEUXKFHGA2-ParamountScreeningToDoc",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "hp-login-qa1",
+        "ResourceType": "AWS::Cognito::UserPoolDomain"
+    },
+    {
+        "PhysicalResourceId": "acl-0e50ef5a0ca3851a3",
+        "ResourceType": "AWS::EC2::NetworkAcl"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:secretsmanager:us-east-1:389435993474:secret:IdToken_Secret-knn9zg",
+        "ResourceType": "AWS::SecretsManager::Secret"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ImportUpdateNewUsersLambd-2FhrcyqD5db9",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-Care-1HOHPXFYKGY4P",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "CaregiverRequest",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "rtb-09f61f0e7da6f66f8",
+        "ResourceType": "AWS::EC2::RouteTable"
+    },
+    {
+        "PhysicalResourceId": "detect-securityhub-finding-121af450",
+        "ResourceType": "AWS::Events::Rule"
+    },
+    {
+        "PhysicalResourceId": "mw_enrollment_details",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:wafv2:us-east-1:389435993474:global/webacl/PatientPortalWAF-qa/af608084-940c-477d-a16c-4e9ce6dd6a90",
+        "ResourceType": "AWS::WAFv2::LoggingConfiguration"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-GetLa-LFhBFI666el4",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-CheckMemberForActivation",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "1eda2133-1dad-47bd-ad60-68ecdd8b0d4d",
+        "ResourceType": "AWS::KMS::Key"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-AllInsuranceInformationL-nBg6F4yLMc9C:32",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-NonMfaConsoleLoginAlarm-eYs3KCBGA9sN",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito--import-jobs-9a2cc2238e9a-us-east-1-logs",
+        "ResourceType": "AWS::S3::BucketPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorter-GetSecurityQuestions-j3g0wsPErO5i:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "subnet-0efb1c49d54070b0d",
+        "ResourceType": "AWS::EC2::Subnet"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-HPCloudTrail-LHFEsDQDhh8s",
+        "ResourceType": "AWS::CloudTrail::Trail"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ImportUpdateNewUsersLamb-PhR7Hv45788O",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-enable-security-NaclChangeAlarm-r3sSIB1F4nNj",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:3613a3a1-bbe7-40a2-ae29-70a9fecd6236:resource/dynamodb/table/mw_customer_details:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "StackSetConstantsCustomResource",
+        "ResourceType": "Custom::StackSetConstants"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorter-GetLambdaLayerArnNew-f8aWijSeKW7k",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-mi-GetMe-ZLKHbj94zSDV",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:sns:us-east-1:389435993474:aws-controltower-SecurityNotifications",
+        "ResourceType": "AWS::SNS::Topic"
+    },
+    {
+        "PhysicalResourceId": "SQSQueueScheduleServiceDoxymeWebhookDLQ-ApproximateAgeOfOldestMessage",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "services-deploy-bucket-389435993474",
+        "ResourceType": "AWS::S3::Bucket"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorte-DeleteCareGiverLambda-yhtfKongYH1g",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-GetInsuranceInformationLambda",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "qa",
+        "ResourceType": "AWS::ApiGateway::Stage"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-e-ExportUsersInGroupLambda-t8pnDOGDg9so",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-export-i-ExportGroupLambda-vgKWhxYn6qS0",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "porte-Stack-DnI10bhfyVL3",
+        "ResourceType": "AWS::IAM::Policy"
+    },
+    {
+        "PhysicalResourceId": "gp2vn8",
+        "ResourceType": "AWS::ApiGateway::Resource"
+    },
+    {
+        "PhysicalResourceId": "https://sqs.us-east-1.amazonaws.com/389435993474/hp-middleware-sam-HelloPorterMiddlewar-SalesforcePractionerQueueNew-g1tKdAFIRlBs",
+        "ResourceType": "AWS::SQS::Queue"
+    },
+    {
+        "PhysicalResourceId": "aws-controltower-NotificationForwarder",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "mw_contract_eob",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito--import-jobs-9a2cc2238e9a-us-east-1-logs",
+        "ResourceType": "AWS::S3::Bucket"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO-CheckMemberForActivationHttpGetPermissionS-1KLG7835X1S6D",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-import-BackupTable-BMR56NLZVT5T",
+        "ResourceType": "AWS::DynamoDB::Table"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMidd-GetMemberConsent-BfxHtGEmdEYH:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMi-GetCareGiverLambda-alMd0ZogMFvn:32",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "tniyh4hl2h",
+        "ResourceType": "AWS::ApiGateway::RestApi"
+    },
+    {
+        "PhysicalResourceId": "/aws/vendedlogs/states/ImportWorkflow-us-east-1-porter-cognito-export-import",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "table/mw_cognito_user_session|dynamodb:table:ReadCapacityUnits|dynamodb",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalableTarget"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:0b6d8ade-48b7-4fd7-a6c7-3af594594c1c:resource/dynamodb/table/mw_customer_details:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPor-ParamountScreeningToDoc-SzQtx2Lskamt",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "porter-cognito-export-imp-StackSetCheckStatusLambd-NXoLsRhMIoXG",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareCognito-I676MUB85FO2-GetMemberMapping",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:2818791b-f88b-494d-9886-855c45cfcec3:resource/dynamodb/table/SecurityQuestionMaster:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPo-GetInsuranceInformationL-STUqRSZSWjQn:32",
+        "ResourceType": "AWS::Lambda::Version"
+    },
+    {
+        "PhysicalResourceId": "https://api.helloporter.com",
+        "ResourceType": "AWS::Cognito::UserPoolResourceServer"
+    },
+    {
+        "PhysicalResourceId": "tniyh4hl2h|pxfhqs|POST",
+        "ResourceType": "AWS::ApiGateway::Method"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:fc1a1f08-5523-4619-84b7-c36031bf4f68:resource/dynamodb/table/LearnFavouritesPatientPortal:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:lambda:us-east-1:389435993474:function:hp-middleware-sam-HelloPorterMiddle-ActivateMember-YRoW1jXgj2YY:live",
+        "ResourceType": "AWS::Lambda::Alias"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-export-im-ListGroupsLambda-LPjGR4UU1XrY",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-SFTPCopyScanDeleteFuncti-xZinrAsRYUC8",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "7kahe66jf0vscfgapuhhvfg9ij",
+        "ResourceType": "AWS::Cognito::UserPoolClient"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO-AllInsuranceInformationLambdaHttpGetPermis-AP033KVIOCRJ",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPo-ClearspringScreeningToDo-4fNdKQTeVWJx",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddlewareCognito-I676MUB85FO2-CognitoMessageTrigger",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "StackSet-porter-cognito-expo-CheckExecutionsLambda-hKnPasElXQEe",
+        "ResourceType": "AWS::Lambda::Function"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorter-KeyRotationLambdaRole-2gcL1CBoSJYt",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "hp-salesforce-QA-389435993474-us-east-1",
+        "ResourceType": "AWS::AppFlow::ConnectorProfile"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:fc817aa2-ff99-4c26-9bf3-7a70928a96b2:resource/dynamodb/table/CaregiverRequest:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    },
+    {
+        "PhysicalResourceId": "1v9t0iwxd1",
+        "ResourceType": "AWS::ApiGateway::RestApi"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:cloudformation:us-east-1:389435993474:stack/hp-middleware-sam-HelloPorterMiddlewareKeyRotation-1XBGJUYTW1GDR/121a7f20-0688-11ef-a130-12e1782699dd",
+        "ResourceType": "AWS::CloudFormation::Stack"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorter-MHCScreeningToDocRole-Yr6mmqxSGDJB",
+        "ResourceType": "AWS::IAM::Role"
+    },
+    {
+        "PhysicalResourceId": "E68MZ8IVD5BAQ",
+        "ResourceType": "AWS::CloudFront::CloudFrontOriginAccessIdentity"
+    },
+    {
+        "PhysicalResourceId": "hp-middleware-sam-HelloPorterMiddleware-PBO-GetInsuranceInformationLambdaHttpGetPermis-1BOWJ158B52ZZ",
+        "ResourceType": "AWS::Lambda::Permission"
+    },
+    {
+        "PhysicalResourceId": "SQSQueueScheduleServiceAppointmentInboundDLQfifo-ApproximateAgeOfOldestMessage",
+        "ResourceType": "AWS::CloudWatch::Alarm"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-AllInsuranceInformationLambda",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "/aws/lambda/hp-middleware-sam-HelloPorterMiddleware-PBO823410SIK-GetSecurityQuestions",
+        "ResourceType": "AWS::Logs::LogGroup"
+    },
+    {
+        "PhysicalResourceId": "NonMfaConsoleLoginMetricFilter-SatdOw6XfX0C",
+        "ResourceType": "AWS::Logs::MetricFilter"
+    },
+    {
+        "PhysicalResourceId": "arn:aws:autoscaling:us-east-1:389435993474:scalingPolicy:8e31875f-7c85-4d84-8b33-d3bcf4362a6b:resource/dynamodb/table/EducationalContentFavourites:policyName/TableWriteScalingPolicy",
+        "ResourceType": "AWS::ApplicationAutoScaling::ScalingPolicy"
+    }
+]
