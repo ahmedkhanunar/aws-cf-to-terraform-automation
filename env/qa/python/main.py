@@ -41,6 +41,7 @@ from modules.config_module import (
 from modules.kms_module import get_kms_key_config
 from modules.lambda_layer_module import get_lambda_layer_config_by_arn
 from modules.waf_module import get_web_acl_config, get_ip_set_config
+from modules.events_module import get_event_rule_config
 
 
 # -----------------------
@@ -79,6 +80,7 @@ def main():
     all_kms_keys = {}
     all_lambda_layers = {}
     all_waf = {"web_acls": {}, "ip_sets": {}}
+    all_event_rules = {}
 
     stacks = list_stacks()
     # print(f"📦 Found {len(stacks)} stacks")
@@ -242,16 +244,22 @@ def main():
                     all_lambda_layers[rid] = layer_config
 
             elif rtype == "AWS::WAFv2::WebACL":
-                print(f"   → Found WAFv2 WebACL: {rid}")
+                # print(f"   → Found WAFv2 WebACL: {rid}")
                 web_acl_config = get_web_acl_config(rid)
                 if web_acl_config:
                     all_waf["web_acls"][rid] = web_acl_config
 
             elif rtype == "AWS::WAFv2::IPSet":
-                print(f"   → Found WAFv2 IPSet: {rid}")
+                # print(f"   → Found WAFv2 IPSet: {rid}")
                 ip_set_config = get_ip_set_config(rid)
                 if ip_set_config:
                     all_waf["ip_sets"][rid] = ip_set_config
+
+            elif rtype == "AWS::Events::Rule":
+                # print(f"   → Found EventBridge Rule: {rid}")
+                event_rule_config = get_event_rule_config(rid)
+                if event_rule_config:
+                    all_event_rules[rid] = event_rule_config
 
     # Save outputs
     if all_buckets:
@@ -381,6 +389,11 @@ def main():
         with open("../waf.auto.tfvars.json", "w") as f:
             json.dump(all_waf, f, indent=2)
         print("✅ Exported WAF resources → waf.auto.tfvars.json")
+
+    if all_event_rules:
+        with open("../events.auto.tfvars.json", "w") as f:
+            json.dump({"event_rules": all_event_rules}, f, indent=2)
+        print("✅ Exported EventBridge Rules → events.auto.tfvars.json")
 
 
 if __name__ == "__main__":

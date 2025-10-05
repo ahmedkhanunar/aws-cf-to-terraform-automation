@@ -216,6 +216,16 @@ modules = [
         "resources": {
             "aws_wafv2_web_acl.managed": ""
         }
+    },
+    {
+        "json_file": "../events.auto.tfvars.json",
+        "json_key": "event_rules",
+        "tf_module": "module.events",
+        "tf_files": ["../../../modules/events/main.tf"],
+        "resources": {
+            "aws_cloudwatch_event_rule.managed": "",
+            "aws_cloudwatch_event_target.managed": ""
+        }
     }
 ]
 
@@ -564,7 +574,6 @@ def generate_import_script():
                 for arn, cfg in json_data.items():
                     # Extract information from the ARN
                     arn_parts = arn.split("|")  # Split on ':' to isolate the parts of the ARN
-                    print(f"{len(arn_parts)} -- here {arn_parts}");
                     if len(arn_parts) == 3:
 
                         name = arn_parts[0]
@@ -580,6 +589,24 @@ def generate_import_script():
                         # The correct terraform import statement should be
                         lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{id}/{name}/{scope}"')
                 continue  
+
+            elif r_type == "aws_cloudwatch_event_rule":
+                for rule_name, rule_data in json_data.items():
+                    address = build_resource_address(tf_module, r_type, r_name, rule_name)
+                    quoted_address = f'"{address}"'
+                    lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{rule_name}"')
+                continue
+
+            elif r_type == "aws_cloudwatch_event_target":
+                for rule_name, rule_data in json_data.items():
+                    if rule_data.get("targets"):
+                        target_id = rule_data["targets"].get("target_id", "default")
+                        # The resource key is the rule name (each.key in the for_each)
+                        address = build_resource_address(tf_module, r_type, r_name, rule_name)
+                        quoted_address = f'"{address}"'
+                        # Import format: rule_name/target_id
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{rule_name}/{target_id}"')
+                continue
 
             # General (non-nested) handling
             target_data = json_data.get(nested_key, {}) if nested_key else json_data

@@ -152,6 +152,13 @@ module "waf" {
   web_acls    = var.web_acls
 }
 
+module "events" {
+  source      = "../../modules/events"
+  environment = var.environment
+  tags        = var.tags
+  event_rules = var.event_rules
+}
+
 
 
 # # module "api_gateway" {
