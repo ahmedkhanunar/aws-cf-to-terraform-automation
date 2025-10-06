@@ -226,6 +226,16 @@ modules = [
             "aws_cloudwatch_event_rule.managed": "",
             "aws_cloudwatch_event_target.managed": ""
         }
+    },
+    {
+        "json_file": "../sqs.auto.tfvars.json",
+        "json_key": "sqs_queues",
+        "tf_module": "module.sqs",
+        "tf_files": ["../../../modules/sqs/main.tf"],
+        "resources": {
+            "aws_sqs_queue.managed": "",
+            "aws_sqs_queue_policy.managed": ""
+        }
     }
 ]
 
@@ -606,6 +616,21 @@ def generate_import_script():
                         quoted_address = f'"{address}"'
                         # Import format: rule_name/target_id
                         lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{rule_name}/{target_id}"')
+                continue
+
+            elif r_type == "aws_sqs_queue":
+                for queue_name, queue_data in json_data.items():
+                    address = build_resource_address(tf_module, r_type, r_name, queue_name)
+                    quoted_address = f'"{address}"'
+                    lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{queue_name}"')
+                continue
+
+            elif r_type == "aws_sqs_queue_policy":
+                for queue_name, queue_data in json_data.items():
+                    if queue_data.get("policy"):
+                        address = build_resource_address(tf_module, r_type, r_name, queue_name)
+                        quoted_address = f'"{address}"'
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{queue_name}"')
                 continue
 
             # General (non-nested) handling

@@ -159,6 +159,13 @@ module "events" {
   event_rules = var.event_rules
 }
 
+module "sqs" {
+  source      = "../../modules/sqs"
+  environment = var.environment
+  tags        = var.tags
+  sqs_queues  = var.sqs_queues
+}
+
 
 
 # # module "api_gateway" {

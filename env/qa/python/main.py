@@ -42,6 +42,7 @@ from modules.kms_module import get_kms_key_config
 from modules.lambda_layer_module import get_lambda_layer_config_by_arn
 from modules.waf_module import get_web_acl_config, get_ip_set_config
 from modules.events_module import get_event_rule_config
+from modules.sqs_module import get_sqs_queue_config_by_physical_resource_id
 
 
 # -----------------------
@@ -81,6 +82,7 @@ def main():
     all_lambda_layers = {}
     all_waf = {"web_acls": {}, "ip_sets": {}}
     all_event_rules = {}
+    all_sqs_queues = {}
 
     stacks = list_stacks()
     # print(f"📦 Found {len(stacks)} stacks")
@@ -261,6 +263,12 @@ def main():
                 if event_rule_config:
                     all_event_rules[rid] = event_rule_config
 
+            elif rtype == "AWS::SQS::Queue":
+                # print(f"   → Found SQS Queue: {rid}")
+                sqs_queue_config = get_sqs_queue_config_by_physical_resource_id(rid)
+                if sqs_queue_config:
+                    all_sqs_queues[rid] = sqs_queue_config
+
     # Save outputs
     if all_buckets:
         with open("../s3.auto.tfvars.json", "w") as f:
@@ -394,6 +402,11 @@ def main():
         with open("../events.auto.tfvars.json", "w") as f:
             json.dump({"event_rules": all_event_rules}, f, indent=2)
         print("✅ Exported EventBridge Rules → events.auto.tfvars.json")
+
+    if all_sqs_queues:
+        with open("../sqs.auto.tfvars.json", "w") as f:
+            json.dump({"sqs_queues": all_sqs_queues}, f, indent=2)
+        print("✅ Exported SQS Queues → sqs.auto.tfvars.json")
 
 
 if __name__ == "__main__":
