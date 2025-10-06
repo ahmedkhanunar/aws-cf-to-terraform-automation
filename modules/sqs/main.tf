@@ -1,8 +1,3 @@
-// Terraform module: sqs
-terraform {
-  required_version = ">= 1.0.0"
-}
-
 resource "aws_sqs_queue" "managed" {
   for_each = var.sqs_queues
 
