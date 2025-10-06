@@ -43,6 +43,7 @@ from modules.lambda_layer_module import get_lambda_layer_config_by_arn
 from modules.waf_module import get_web_acl_config, get_ip_set_config
 from modules.events_module import get_event_rule_config
 from modules.sqs_module import get_sqs_queue_config_by_physical_resource_id
+from modules.stepfunctions_module import get_state_machine_config_by_arn
 
 
 # -----------------------
@@ -83,6 +84,7 @@ def main():
     all_waf = {"web_acls": {}, "ip_sets": {}}
     all_event_rules = {}
     all_sqs_queues = {}
+    all_state_machines = {}
 
     stacks = list_stacks()
     # print(f"📦 Found {len(stacks)} stacks")
@@ -269,6 +271,12 @@ def main():
                 if sqs_queue_config:
                     all_sqs_queues[rid] = sqs_queue_config
 
+            elif rtype == "AWS::StepFunctions::StateMachine":
+                sm_config = get_state_machine_config_by_arn(rid)
+                if sm_config:
+                    # use ARN as key
+                    all_state_machines[rid] = sm_config
+
     # Save outputs
     if all_buckets:
         with open("../s3.auto.tfvars.json", "w") as f:
@@ -407,6 +415,11 @@ def main():
         with open("../sqs.auto.tfvars.json", "w") as f:
             json.dump({"sqs_queues": all_sqs_queues}, f, indent=2)
         print("✅ Exported SQS Queues → sqs.auto.tfvars.json")
+
+    if all_state_machines:
+        with open("../stepfunctions.auto.tfvars.json", "w") as f:
+            json.dump({"state_machines": all_state_machines}, f, indent=2)
+        print("✅ Exported Step Functions State Machines → stepfunctions.auto.tfvars.json")
 
 
 if __name__ == "__main__":

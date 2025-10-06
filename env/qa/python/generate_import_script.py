@@ -236,6 +236,15 @@ modules = [
             "aws_sqs_queue.managed": "",
             "aws_sqs_queue_policy.managed": ""
         }
+    },
+    {
+        "json_file": "../stepfunctions.auto.tfvars.json",
+        "json_key": "state_machines",
+        "tf_module": "module.stepfunctions",
+        "tf_files": ["../../../modules/stepfunctions/main.tf"],
+        "resources": {
+            "aws_sfn_state_machine.managed": ""
+        }
     }
 ]
 
@@ -631,6 +640,15 @@ def generate_import_script():
                         address = build_resource_address(tf_module, r_type, r_name, queue_name)
                         quoted_address = f'"{address}"'
                         lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{queue_name}"')
+                continue
+
+            elif r_type == "aws_sfn_state_machine":
+                for sm_arn, sm_data in json_data.items():
+                    # Use ARN as instance key
+                    address = build_resource_address(tf_module, r_type, r_name, sm_arn)
+                    quoted_address = f'"{address}"'
+                    import_id = sm_arn
+                    lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
                 continue
 
             # General (non-nested) handling

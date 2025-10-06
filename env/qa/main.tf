@@ -166,6 +166,13 @@ module "sqs" {
   sqs_queues  = var.sqs_queues
 }
 
+module "stepfunctions" {
+  source         = "../../modules/stepfunctions"
+  environment    = var.environment
+  tags           = var.tags
+  state_machines = var.state_machines
+}
+
 
 
 # # module "api_gateway" {
