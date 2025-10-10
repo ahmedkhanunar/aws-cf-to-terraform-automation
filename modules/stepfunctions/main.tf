@@ -31,7 +31,8 @@ resource "aws_sfn_state_machine" "managed" {
   lifecycle {
     prevent_destroy = true
     ignore_changes = [
-      definition
+      definition,
+      tags
     ]
   }
 }

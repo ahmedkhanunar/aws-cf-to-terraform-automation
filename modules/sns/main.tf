@@ -18,7 +18,8 @@ resource "aws_sns_topic" "managed" {
       tags["aws:cloudformation:stack-id"],
       tags["aws:cloudformation:stack-name"],
       tags["lambda:createdBy"],
-      tags_all
+      tags_all,
+      tags
     ]
   }
 }

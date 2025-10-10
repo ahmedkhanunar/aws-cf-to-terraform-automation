@@ -19,7 +19,8 @@ resource "aws_kms_key" "managed" {
     prevent_destroy = true
     ignore_changes = [
       deletion_window_in_days,
-      policy
+      policy,
+      bypass_policy_lockout_safety_check
     ]
   }
 }
