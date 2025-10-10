@@ -174,11 +174,3 @@ module "stepfunctions" {
 }
 
 
-
-# # module "api_gateway" {
-# #   source      = "../../modules/api_gateway"
-# #   environment = var.environment
-# #   tags        = var.tags
-# #   apis        = var.apis
-# # }
-

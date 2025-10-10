@@ -16,7 +16,6 @@ from modules.iam_role_module import (
 from modules.secrets_manager_module import get_secret_config
 from modules.sns_module import get_sns_topic_config
 from modules.vpc_module import get_vpc_config, extract_flat_resources
-from modules.api_module import get_api_config, flatten_api_gateway_resources
 from modules.cloudfront_module import get_cloudfront_config
 from modules.cloudtrail_module import get_cloudtrail_config
 from modules.cloudwatch_module import get_log_group_config
@@ -162,15 +161,6 @@ def main():
                 if vpc_config:
                     all_vpcs[rid] = vpc_config
 
-            # elif rtype == "AWS::ApiGateway::RestApi":  # API Gateway Rest API
-                # print(f"   → Found API Gateway API: {rid}")
-                # api_config = get_api_config(rid)
-                # if api_config:
-                #     all_apis[rid] = api_config["api"]
-                #     all_resources[rid] = api_config["resources"]
-                #     all_methods[rid] = api_config["methods"]
-                #     all_stages[rid] = api_config["stages"]
-            
             # elif rtype == "AWS::CloudFront::Distribution":
             #     print(f"   → Found CloudFront Distribution: {rid}")
             #     dist_config = get_cloudfront_config(rid)
@@ -328,19 +318,6 @@ def main():
         with open("../vpc.auto.tfvars.json", "w") as f:
             json.dump(flat, f, indent=2)
         print("✅ Exported VPCs → vpc.auto.tfvars.json")
-
-    # API Gateway Data Export
-    # if all_apis:
-    #     # Flatten the API Gateway data
-    #     flattened_api_data = flatten_api_gateway_resources({
-    #         "apis": all_apis,
-    #         "resources": all_resources,
-    #         "methods": all_methods,
-    #         "stages": all_stages
-    #     })
-    #     with open("../api_gateway.auto.tfvars.json", "w") as f:
-    #         json.dump(flattened_api_data, f, indent=2)
-    #     print("✅ Exported API Gateway data → api_gateway.auto.tfvars.json")
 
     # if all_cloudfront_dists:
     #     with open("../cloudfront.auto.tfvars.json", "w") as f:

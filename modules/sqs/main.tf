@@ -56,3 +56,4 @@ resource "aws_sqs_queue_policy" "managed" {
     ignore_changes = [policy]
   }
 }
+

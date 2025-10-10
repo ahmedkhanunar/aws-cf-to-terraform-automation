@@ -352,15 +352,6 @@ variable "delivery_channels" {
   }))
 }
 
-
-
-# Add a new variable for API Gateways
-variable "apis" {
-  description = "Map of API Gateway configurations (auto-generated)"
-  type        = map(any)
-  default     = {}
-}
-
 variable "kms_keys" {
   description = "Map of KMS key configurations"
   type = map(object({
