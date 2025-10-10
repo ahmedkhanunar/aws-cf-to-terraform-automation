@@ -43,6 +43,16 @@ from modules.waf_module import get_web_acl_config, get_ip_set_config
 from modules.events_module import get_event_rule_config
 from modules.sqs_module import get_sqs_queue_config_by_physical_resource_id
 from modules.stepfunctions_module import get_state_machine_config_by_arn
+from modules.apigateway_module import (
+    extract_rest_api_id_from_rid,
+    get_rest_api_config_by_id,
+    get_account as get_apigw_account,
+    get_domain_name_config,
+    list_rest_apis,
+    list_stages_for_api,
+    parse_stage_from_rid,
+    find_stage_config,
+)
 
 
 # -----------------------
@@ -60,11 +70,11 @@ def main():
     all_sns_topics = {}
     all_vpcs = {}
 
-    # For storing API Gateway data
-    all_apis = {}  
-    all_resources = {}
-    all_methods = {}
-    all_stages = {}
+    # For storing API Gateway data (keyed by CFN PhysicalResourceId rid)
+    apigw_rest_apis = {}
+    apigw_account = {}
+    apigw_domain_names = {}
+    apigw_stages = {}
 
     all_cloudfront_dists = {}
     all_cloudtrails = {}
@@ -266,8 +276,61 @@ def main():
                 if sm_config:
                     # use ARN as key
                     all_state_machines[rid] = sm_config
+            
+            elif rtype == "AWS::ApiGateway::RestApi":
+                api_id = extract_rest_api_id_from_rid(rid)
+                if not api_id:
+                    # Try to derive from known APIs
+                    apis_all = list_rest_apis()
+                    # heuristic: if exactly one API exists, use it
+                    if len(apis_all) == 1:
+                        api_id = next(iter(apis_all.keys()))
+                if api_id:
+                    api_cfg = get_rest_api_config_by_id(api_id)
+                    if api_cfg:
+                        apigw_rest_apis[rid] = api_cfg
+
+            elif rtype == "AWS::ApiGateway::Account":
+                acct = get_apigw_account()
+                if acct:
+                    apigw_account[rid] = acct
+
+            elif rtype == "AWS::ApiGateway::DomainName":
+                # CFN rid for domain is the domain name itself
+                domain_cfg = get_domain_name_config(rid)
+                if domain_cfg:
+                    apigw_domain_names[rid] = domain_cfg
+
+            elif rtype == "AWS::ApiGateway::Stage":
+                api_id, stage_name = parse_stage_from_rid(rid)
+                stage_cfg = None
+                if api_id and stage_name:
+                    stages = list_stages_for_api(api_id)
+                    stage_cfg = stages.get(stage_name)
+                elif stage_name:
+                    # Search across all APIs
+                    all_apis_map = list_rest_apis()
+                    found_api_id, stage_cfg = find_stage_config(list(all_apis_map.keys()), stage_name)
+                    api_id = found_api_id
+
+                if stage_cfg:
+                    # Ensure keys present for import
+                    stage_cfg["rest_api_id"] = api_id or stage_cfg.get("rest_api_id")
+                    stage_cfg["stage_name"] = stage_name or stage_cfg.get("stage_name")
+                    apigw_stages[rid] = stage_cfg
 
     # Save outputs
+
+    # Write API Gateway output keyed by CFN physical IDs
+    if any([apigw_rest_apis, apigw_account, apigw_domain_names, apigw_stages]):
+        with open("../api_gateway.auto.tfvars.json", "w") as f:
+            json.dump({
+                "rest_apis": apigw_rest_apis,
+                "account": apigw_account,
+                "domain_names": apigw_domain_names,
+                "stages": apigw_stages,
+            }, f, indent=2)
+        print("✅ Exported API Gateway → api_gateway.auto.tfvars.json")
     if all_buckets:
         with open("../s3.auto.tfvars.json", "w") as f:
             json.dump({"buckets": all_buckets}, f, indent=2)

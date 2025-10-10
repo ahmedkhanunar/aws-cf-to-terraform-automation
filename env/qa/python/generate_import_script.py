@@ -245,7 +245,43 @@ modules = [
         "resources": {
             "aws_sfn_state_machine.managed": ""
         }
-    }
+    },
+    {
+        "json_file": "../api_gateway.auto.tfvars.json",
+        "json_key": "rest_apis",
+        "tf_module": "module.apigateway",
+        "tf_files": ["../../../modules/apigateway/main.tf"],
+        "resources": {
+            "aws_api_gateway_rest_api.managed": ""
+        }
+    },
+    {
+        "json_file": "../api_gateway.auto.tfvars.json",
+        "json_key": "account",
+        "tf_module": "module.apigateway",
+        "tf_files": ["../../../modules/apigateway/main.tf"],
+        "resources": {
+            "aws_api_gateway_account.managed": ""
+        }
+    },
+    {
+        "json_file": "../api_gateway.auto.tfvars.json",
+        "json_key": "domain_names",
+        "tf_module": "module.apigateway",
+        "tf_files": ["../../../modules/apigateway/main.tf"],
+        "resources": {
+            "aws_api_gateway_domain_name.managed": ""
+        }
+    },
+    {
+        "json_file": "../api_gateway.auto.tfvars.json",
+        "json_key": "stages",
+        "tf_module": "module.apigateway",
+        "tf_files": ["../../../modules/apigateway/main.tf"],
+        "resources": {
+            "aws_api_gateway_stage.managed": ""
+        }
+    },
 ]
 
 OUTPUT_FILE = "../import.sh"
@@ -650,6 +686,47 @@ def generate_import_script():
                     import_id = sm_arn
                     lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
                 continue
+
+            # API Gateway specific handling
+            if tf_module == "module.apigateway":
+                if r_type == "aws_api_gateway_rest_api":
+                    # json_data is keyed by CFN rid; each value contains the real RestApi id under 'id'
+                    for rid, api_obj in json_data.items():
+                        api_id = api_obj.get("id") or rid
+                        address = build_resource_address(tf_module, r_type, r_name, rid)
+                        quoted_address = f'"{address}"'
+                        import_id = api_id
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                    continue
+
+                elif r_type == "aws_api_gateway_account":
+                    # json_data keyed by CFN rid; import id is literal 'api-gateway-account'
+                    for rid in json_data.keys():
+                        address = build_resource_address(tf_module, r_type, r_name, rid)
+                        quoted_address = f'"{address}"'
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "api-gateway-account"')
+                    continue
+
+                elif r_type == "aws_api_gateway_domain_name":
+                    # json_data keyed by CFN rid, which equals the domain name
+                    for domain_name in json_data.keys():
+                        address = build_resource_address(tf_module, r_type, r_name, domain_name)
+                        quoted_address = f'"{address}"'
+                        import_id = domain_name
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                    continue
+
+                elif r_type == "aws_api_gateway_stage":
+                    # json_data keyed by CFN rid. Each value has rest_api_id and stage_name
+                    for rid, stage_obj in json_data.items():
+                        api_id = stage_obj.get("rest_api_id")
+                        stage_name = stage_obj.get("stage_name")
+                        # Use the original rid as the key (not api_id|stage_name)
+                        address = build_resource_address(tf_module, r_type, r_name, rid)
+                        quoted_address = f'"{address}"'
+                        import_id = f"{api_id}/{stage_name}" if api_id and stage_name else stage_name or rid
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                    continue
 
             # General (non-nested) handling
             target_data = json_data.get(nested_key, {}) if nested_key else json_data
