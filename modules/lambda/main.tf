@@ -64,7 +64,9 @@ resource "aws_lambda_function" "managed" {
       publish,
       reserved_concurrent_executions,
       environment,
-      vpc_config
+      vpc_config,
+      timeout,
+      memory_size
     ]
   }
 
