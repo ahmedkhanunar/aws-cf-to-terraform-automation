@@ -3,6 +3,12 @@ variable "environment" {
   default = "qa"
 }
 
+variable "resources" {
+  description = "Map keyed by resource id to API Gateway resource configs"
+  type        = any
+  default     = {}
+}
+
 variable "tags" {
   type    = map(string)
   default = {}

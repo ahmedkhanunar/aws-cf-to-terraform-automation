@@ -182,6 +182,7 @@ module "apigateway" {
   account      = var.account
   domain_names = var.domain_names
   stages       = var.stages
+  resources    = var.resources
 }
 
 

@@ -79,4 +79,12 @@ resource "aws_api_gateway_stage" "managed" {
   tags = local.tags
 }
 
+resource "aws_api_gateway_resource" "managed" {
+  for_each = var.resources
+
+  rest_api_id = each.value.rest_api_id
+  parent_id   = each.value.parent_id
+  path_part   = each.value.path_part
+}
+
 

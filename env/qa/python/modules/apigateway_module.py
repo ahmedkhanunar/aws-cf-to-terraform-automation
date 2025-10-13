@@ -189,3 +189,40 @@ def find_stage_config(api_ids, stage_name):
     return None, None
 
 
+def list_resources_for_api(rest_api_id):
+    resources = {}
+    try:
+        paginator = apigw.get_paginator("get_resources")
+        for page in paginator.paginate(restApiId=rest_api_id, embed=["methods"]):
+            for r in page.get("items", []):
+                rid = r.get("id")
+                # skip root resource (no pathPart)
+                if r.get("pathPart") is None:
+                    continue
+                resources[rid] = {
+                    "rest_api_id": rest_api_id,
+                    "id": rid,
+                    "parent_id": r.get("parentId"),
+                    "path": r.get("path"),
+                    "path_part": r.get("pathPart"),
+                    "resource_methods": r.get("resourceMethods", {}),
+                }
+    except ClientError as e:
+        print(f"⚠️ Error listing resources for API {rest_api_id}: {e}")
+    return resources
+
+
+def find_resources_by_ids(resource_ids):
+    found = {}
+    try:
+        apis = list_rest_apis()
+        for api_id in apis.keys():
+            api_resources = list_resources_for_api(api_id)
+            for rid, cfg in api_resources.items():
+                if rid in resource_ids:
+                    found[rid] = cfg
+    except Exception as e:
+        print(f"⚠️ Error finding resources by ids: {e}")
+    return found
+
+

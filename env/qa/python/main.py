@@ -52,6 +52,8 @@ from modules.apigateway_module import (
     list_stages_for_api,
     parse_stage_from_rid,
     find_stage_config,
+    list_resources_for_api,
+    find_resources_by_ids,
 )
 
 
@@ -75,6 +77,7 @@ def main():
     apigw_account = {}
     apigw_domain_names = {}
     apigw_stages = {}
+    apigw_resources = {}
 
     all_cloudfront_dists = {}
     all_cloudtrails = {}
@@ -319,16 +322,23 @@ def main():
                     stage_cfg["stage_name"] = stage_name or stage_cfg.get("stage_name")
                     apigw_stages[rid] = stage_cfg
 
+            elif rtype == "AWS::ApiGateway::Resource":
+                # rid is the API Gateway Resource ID; need to find its API context
+                found = find_resources_by_ids([rid])
+                if rid in found:
+                    apigw_resources[rid] = found[rid]
+
     # Save outputs
 
     # Write API Gateway output keyed by CFN physical IDs
-    if any([apigw_rest_apis, apigw_account, apigw_domain_names, apigw_stages]):
+    if any([apigw_rest_apis, apigw_account, apigw_domain_names, apigw_stages, apigw_resources]):
         with open("../api_gateway.auto.tfvars.json", "w") as f:
             json.dump({
                 "rest_apis": apigw_rest_apis,
                 "account": apigw_account,
                 "domain_names": apigw_domain_names,
                 "stages": apigw_stages,
+                "resources": apigw_resources,
             }, f, indent=2)
         print("✅ Exported API Gateway → api_gateway.auto.tfvars.json")
     if all_buckets:

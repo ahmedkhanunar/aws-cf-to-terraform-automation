@@ -107,4 +107,10 @@ variable "stages" {
   default = {}
 }
 
+variable "resources" {
+  description = "Map keyed by resource id to API Gateway resource configs"
+  type        = any
+  default     = {}
+}
+
 

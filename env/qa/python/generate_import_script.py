@@ -282,6 +282,15 @@ modules = [
             "aws_api_gateway_stage.managed": ""
         }
     },
+    {
+        "json_file": "../api_gateway.auto.tfvars.json",
+        "json_key": "resources",
+        "tf_module": "module.apigateway",
+        "tf_files": ["../../../modules/apigateway/main.tf"],
+        "resources": {
+            "aws_api_gateway_resource.managed": ""
+        }
+    },
 ]
 
 OUTPUT_FILE = "../import.sh"
@@ -725,6 +734,17 @@ def generate_import_script():
                         address = build_resource_address(tf_module, r_type, r_name, rid)
                         quoted_address = f'"{address}"'
                         import_id = f"{api_id}/{stage_name}" if api_id and stage_name else stage_name or rid
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                    continue
+
+                elif r_type == "aws_api_gateway_resource":
+                    # json_data keyed by resource id; value contains rest_api_id and id
+                    for resource_id, resource_obj in json_data.items():
+                        api_id = resource_obj.get("rest_api_id")
+                        rid = resource_obj.get("id", resource_id)
+                        address = build_resource_address(tf_module, r_type, r_name, resource_id)
+                        quoted_address = f'"{address}"'
+                        import_id = f"{api_id}/{rid}"
                         lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
                     continue
 
