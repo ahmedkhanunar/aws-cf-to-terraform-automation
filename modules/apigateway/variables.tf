@@ -113,4 +113,28 @@ variable "resources" {
   default     = {}
 }
 
+variable "methods" {
+  description = "Map keyed by resourceId|httpMethod to API Gateway method configs"
+  type        = any
+  default     = {}
+}
+
+variable "method_responses" {
+  description = "Map keyed by resourceId|httpMethod|statusCode to method response configs"
+  type        = any
+  default     = {}
+}
+
+variable "integrations" {
+  description = "Map keyed by resourceId|httpMethod to integration configs"
+  type        = any
+  default     = {}
+}
+
+variable "integration_responses" {
+  description = "Map keyed by resourceId|httpMethod|statusCode to integration response configs"
+  type        = any
+  default     = {}
+}
+
 

@@ -175,14 +175,18 @@ module "stepfunctions" {
 
 
 module "apigateway" {
-  source       = "../../modules/apigateway"
-  environment  = var.environment
-  tags         = var.tags
-  rest_apis    = var.rest_apis
-  account      = var.account
-  domain_names = var.domain_names
-  stages       = var.stages
-  resources    = var.resources
+  source                 = "../../modules/apigateway"
+  environment            = var.environment
+  tags                   = var.tags
+  rest_apis              = var.rest_apis
+  account                = var.account
+  domain_names           = var.domain_names
+  stages                 = var.stages
+  resources              = var.resources
+  methods                = var.methods
+  method_responses       = var.method_responses
+  integrations           = var.integrations
+  integration_responses  = var.integration_responses
 }
 
 

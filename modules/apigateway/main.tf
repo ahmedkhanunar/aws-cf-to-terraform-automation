@@ -87,4 +87,67 @@ resource "aws_api_gateway_resource" "managed" {
   path_part   = each.value.path_part
 }
 
+resource "aws_api_gateway_method" "managed" {
+  for_each = var.methods
+
+  rest_api_id   = each.value.rest_api_id
+  resource_id   = each.value.resource_id
+  http_method   = each.value.http_method
+  authorization = try(each.value.authorization, "NONE")
+  api_key_required = try(each.value.api_key_required, false)
+
+  request_models     = try(each.value.request_models, null)
+  request_parameters = try(each.value.request_parameters, null)
+}
+
+resource "aws_api_gateway_method_response" "managed" {
+  for_each = var.method_responses
+
+  rest_api_id   = each.value.rest_api_id
+  resource_id   = each.value.resource_id
+  http_method   = each.value.http_method
+  status_code   = each.value.status_code
+
+  response_models     = try(each.value.response_models, null)
+  response_parameters = try(each.value.response_parameters, null)
+
+  depends_on = [aws_api_gateway_method.managed]
+}
+
+resource "aws_api_gateway_integration" "managed" {
+  for_each = var.integrations
+
+  rest_api_id = each.value.rest_api_id
+  resource_id = each.value.resource_id
+  http_method = each.value.http_method
+
+  type                    = try(each.value.type, null)
+  integration_http_method = try(each.value.integration_http_method, null)
+  uri                     = try(each.value.uri, null)
+  credentials             = try(each.value.credentials, null)
+  request_parameters      = try(each.value.request_parameters, null)
+  request_templates       = try(each.value.request_templates, null)
+  passthrough_behavior    = try(each.value.passthrough_behavior, null)
+  timeout_milliseconds    = try(each.value.timeout_milliseconds, null)
+  cache_namespace         = try(each.value.cache_namespace, null)
+  cache_key_parameters    = try(each.value.cache_key_parameters, null)
+
+  depends_on = [aws_api_gateway_method.managed]
+}
+
+resource "aws_api_gateway_integration_response" "managed" {
+  for_each = var.integration_responses
+
+  rest_api_id = each.value.rest_api_id
+  resource_id = each.value.resource_id
+  http_method = each.value.http_method
+  status_code = each.value.status_code
+
+  response_parameters = try(each.value.response_parameters, null)
+  response_templates  = try(each.value.response_templates, null)
+  selection_pattern   = try(each.value.selection_pattern, null)
+
+  depends_on = [aws_api_gateway_integration.managed]
+}
+
 

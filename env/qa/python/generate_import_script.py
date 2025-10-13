@@ -291,6 +291,42 @@ modules = [
             "aws_api_gateway_resource.managed": ""
         }
     },
+    {
+        "json_file": "../api_gateway.auto.tfvars.json",
+        "json_key": "methods",
+        "tf_module": "module.apigateway",
+        "tf_files": ["../../../modules/apigateway/main.tf"],
+        "resources": {
+            "aws_api_gateway_method.managed": ""
+        }
+    },
+    {
+        "json_file": "../api_gateway.auto.tfvars.json",
+        "json_key": "method_responses",
+        "tf_module": "module.apigateway",
+        "tf_files": ["../../../modules/apigateway/main.tf"],
+        "resources": {
+            "aws_api_gateway_method_response.managed": ""
+        }
+    },
+    {
+        "json_file": "../api_gateway.auto.tfvars.json",
+        "json_key": "integrations",
+        "tf_module": "module.apigateway",
+        "tf_files": ["../../../modules/apigateway/main.tf"],
+        "resources": {
+            "aws_api_gateway_integration.managed": ""
+        }
+    },
+    {
+        "json_file": "../api_gateway.auto.tfvars.json",
+        "json_key": "integration_responses",
+        "tf_module": "module.apigateway",
+        "tf_files": ["../../../modules/apigateway/main.tf"],
+        "resources": {
+            "aws_api_gateway_integration_response.managed": ""
+        }
+    },
 ]
 
 OUTPUT_FILE = "../import.sh"
@@ -745,6 +781,56 @@ def generate_import_script():
                         address = build_resource_address(tf_module, r_type, r_name, resource_id)
                         quoted_address = f'"{address}"'
                         import_id = f"{api_id}/{rid}"
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                    continue
+
+                elif r_type == "aws_api_gateway_method":
+                    # json_data keyed by resourceId|httpMethod
+                    for method_key, method_obj in json_data.items():
+                        api_id = method_obj.get("rest_api_id")
+                        resource_id = method_obj.get("resource_id")
+                        http_method = method_obj.get("http_method")
+                        address = build_resource_address(tf_module, r_type, r_name, method_key)
+                        quoted_address = f'"{address}"'
+                        import_id = f"{api_id}/{resource_id}/{http_method}"
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                    continue
+
+                elif r_type == "aws_api_gateway_method_response":
+                    # json_data keyed by resourceId|httpMethod|statusCode
+                    for resp_key, resp_obj in json_data.items():
+                        api_id = resp_obj.get("rest_api_id")
+                        resource_id = resp_obj.get("resource_id")
+                        http_method = resp_obj.get("http_method")
+                        status_code = resp_obj.get("status_code")
+                        address = build_resource_address(tf_module, r_type, r_name, resp_key)
+                        quoted_address = f'"{address}"'
+                        import_id = f"{api_id}/{resource_id}/{http_method}/{status_code}"
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                    continue
+
+                elif r_type == "aws_api_gateway_integration":
+                    # json_data keyed by resourceId|httpMethod
+                    for int_key, int_obj in json_data.items():
+                        api_id = int_obj.get("rest_api_id")
+                        resource_id = int_obj.get("resource_id")
+                        http_method = int_obj.get("http_method")
+                        address = build_resource_address(tf_module, r_type, r_name, int_key)
+                        quoted_address = f'"{address}"'
+                        import_id = f"{api_id}/{resource_id}/{http_method}"
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                    continue
+
+                elif r_type == "aws_api_gateway_integration_response":
+                    # json_data keyed by resourceId|httpMethod|statusCode
+                    for int_resp_key, int_resp_obj in json_data.items():
+                        api_id = int_resp_obj.get("rest_api_id")
+                        resource_id = int_resp_obj.get("resource_id")
+                        http_method = int_resp_obj.get("http_method")
+                        status_code = int_resp_obj.get("status_code")
+                        address = build_resource_address(tf_module, r_type, r_name, int_resp_key)
+                        quoted_address = f'"{address}"'
+                        import_id = f"{api_id}/{resource_id}/{http_method}/{status_code}"
                         lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
                     continue
 

@@ -78,6 +78,10 @@ def main():
     apigw_domain_names = {}
     apigw_stages = {}
     apigw_resources = {}
+    apigw_methods = {}
+    apigw_method_responses = {}
+    apigw_integrations = {}
+    apigw_integration_responses = {}
 
     all_cloudfront_dists = {}
     all_cloudtrails = {}
@@ -327,11 +331,73 @@ def main():
                 found = find_resources_by_ids([rid])
                 if rid in found:
                     apigw_resources[rid] = found[rid]
+                    # expand methods from resource into a flat map
+                    methods = found[rid].get("resource_methods", {}) or {}
+                    for method_name, method_cfg in methods.items():
+                        key = f"{rid}|{method_name}"
+                        apigw_methods[key] = {
+                            "rest_api_id": found[rid].get("rest_api_id"),
+                            "resource_id": rid,
+                            "http_method": method_cfg.get("httpMethod", method_name),
+                            "authorization": method_cfg.get("authorizationType", "NONE"),
+                            "api_key_required": method_cfg.get("apiKeyRequired", False),
+                            # Optional shapes; keep loose
+                            "request_parameters": method_cfg.get("requestParameters"),
+                            "request_models": method_cfg.get("requestModels"),
+                        }
+
+                        # Extract method responses
+                        method_responses = method_cfg.get("methodResponses", {}) or {}
+                        for status_code, resp_cfg in method_responses.items():
+                            resp_key = f"{rid}|{method_name}|{status_code}"
+                            apigw_method_responses[resp_key] = {
+                                "rest_api_id": found[rid].get("rest_api_id"),
+                                "resource_id": rid,
+                                "http_method": method_cfg.get("httpMethod", method_name),
+                                "status_code": status_code,
+                                "response_models": resp_cfg.get("responseModels"),
+                                "response_parameters": resp_cfg.get("responseParameters"),
+                            }
+
+                        # Extract integration
+                        integration = method_cfg.get("methodIntegration")
+                        if integration:
+                            int_key = f"{rid}|{method_name}"
+                            apigw_integrations[int_key] = {
+                                "rest_api_id": found[rid].get("rest_api_id"),
+                                "resource_id": rid,
+                                "http_method": method_cfg.get("httpMethod", method_name),
+                                "type": integration.get("type"),
+                                "integration_http_method": integration.get("httpMethod"),
+                                "uri": integration.get("uri"),
+                                "credentials": integration.get("credentials"),
+                                "request_parameters": integration.get("requestParameters"),
+                                "request_templates": integration.get("requestTemplates"),
+                                "passthrough_behavior": integration.get("passthroughBehavior"),
+                                "timeout_milliseconds": integration.get("timeoutInMillis"),
+                                "cache_namespace": integration.get("cacheNamespace"),
+                                "cache_key_parameters": integration.get("cacheKeyParameters"),
+                            }
+
+                            # Extract integration responses
+                            int_responses = integration.get("integrationResponses", {}) or {}
+                            for int_status_code, int_resp_cfg in int_responses.items():
+                                int_resp_key = f"{rid}|{method_name}|{int_status_code}"
+                                apigw_integration_responses[int_resp_key] = {
+                                    "rest_api_id": found[rid].get("rest_api_id"),
+                                    "resource_id": rid,
+                                    "http_method": method_cfg.get("httpMethod", method_name),
+                                    "status_code": int_status_code,
+                                    "response_parameters": int_resp_cfg.get("responseParameters"),
+                                    "response_templates": int_resp_cfg.get("responseTemplates"),
+                                    "selection_pattern": int_resp_cfg.get("selectionPattern"),
+                                }
 
     # Save outputs
 
     # Write API Gateway output keyed by CFN physical IDs
-    if any([apigw_rest_apis, apigw_account, apigw_domain_names, apigw_stages, apigw_resources]):
+    if any([apigw_rest_apis, apigw_account, apigw_domain_names, apigw_stages, apigw_resources, 
+            apigw_methods, apigw_method_responses, apigw_integrations, apigw_integration_responses]):
         with open("../api_gateway.auto.tfvars.json", "w") as f:
             json.dump({
                 "rest_apis": apigw_rest_apis,
@@ -339,6 +405,10 @@ def main():
                 "domain_names": apigw_domain_names,
                 "stages": apigw_stages,
                 "resources": apigw_resources,
+                "methods": apigw_methods,
+                "method_responses": apigw_method_responses,
+                "integrations": apigw_integrations,
+                "integration_responses": apigw_integration_responses,
             }, f, indent=2)
         print("✅ Exported API Gateway → api_gateway.auto.tfvars.json")
     if all_buckets:
