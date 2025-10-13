@@ -10,7 +10,7 @@ stepfunctions = boto3.client("stepfunctions")
 # -----------------------
 def get_state_machine_config_by_arn(state_machine_arn):
     try:
-        print(f"🔍 Fetching state machine config for ARN: {state_machine_arn}")
+        # print(f"🔍 Fetching state machine config for ARN: {state_machine_arn}")
 
         # Correct the parameter name to 'stateMachineArn' (lowercase 's')
         desc = stepfunctions.describe_state_machine(stateMachineArn=state_machine_arn)
@@ -60,7 +60,7 @@ def get_state_machine_config_by_name(state_machine_name):
         # Pagination through state machines
         for page in paginator.paginate():
             for sm in page.get("stateMachines", []):
-                print(f"🔍 Checking state machine: {sm.get('name')}")  # Debugging line to check each state machine
+                # print(f"🔍 Checking state machine: {sm.get('name')}")  # Debugging line to check each state machine
                 if sm.get("name") == state_machine_name:
                     return get_state_machine_config_by_arn(sm.get("stateMachineArn"))
 
