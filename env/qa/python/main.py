@@ -54,6 +54,8 @@ from modules.apigateway_module import (
     find_stage_config,
     list_resources_for_api,
     find_resources_by_ids,
+    list_deployments_for_api,
+    get_deployment_by_id,
 )
 
 
@@ -82,6 +84,7 @@ def main():
     apigw_method_responses = {}
     apigw_integrations = {}
     apigw_integration_responses = {}
+    apigw_deployments = {}
 
     all_cloudfront_dists = {}
     all_cloudtrails = {}
@@ -326,6 +329,29 @@ def main():
                     stage_cfg["stage_name"] = stage_name or stage_cfg.get("stage_name")
                     apigw_stages[rid] = stage_cfg
 
+            elif rtype == "AWS::ApiGateway::Deployment":
+                # Deployment rid is deployment ID; need to find which API it belongs to
+                # Try to extract from stages that reference it
+                found_api_id = None
+                for stage_rid, stage_cfg in apigw_stages.items():
+                    if stage_cfg.get("deployment_id") == rid:
+                        found_api_id = stage_cfg.get("rest_api_id")
+                        break
+                
+                if not found_api_id:
+                    # Fallback: check all APIs for this deployment
+                    all_apis = list_rest_apis()
+                    for api_id in all_apis.keys():
+                        deployments = list_deployments_for_api(api_id)
+                        if rid in deployments:
+                            found_api_id = api_id
+                            break
+                
+                if found_api_id:
+                    deployment_cfg = get_deployment_by_id(found_api_id, rid)
+                    if deployment_cfg:
+                        apigw_deployments[rid] = deployment_cfg
+
             elif rtype == "AWS::ApiGateway::Resource":
                 # rid is the API Gateway Resource ID; need to find its API context
                 found = find_resources_by_ids([rid])
@@ -397,7 +423,7 @@ def main():
 
     # Write API Gateway output keyed by CFN physical IDs
     if any([apigw_rest_apis, apigw_account, apigw_domain_names, apigw_stages, apigw_resources, 
-            apigw_methods, apigw_method_responses, apigw_integrations, apigw_integration_responses]):
+            apigw_methods, apigw_method_responses, apigw_integrations, apigw_integration_responses, apigw_deployments]):
         with open("../api_gateway.auto.tfvars.json", "w") as f:
             json.dump({
                 "rest_apis": apigw_rest_apis,
@@ -409,6 +435,7 @@ def main():
                 "method_responses": apigw_method_responses,
                 "integrations": apigw_integrations,
                 "integration_responses": apigw_integration_responses,
+                "deployments": apigw_deployments,
             }, f, indent=2)
         print("✅ Exported API Gateway → api_gateway.auto.tfvars.json")
     if all_buckets:

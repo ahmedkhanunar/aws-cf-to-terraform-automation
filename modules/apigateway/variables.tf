@@ -137,4 +137,10 @@ variable "integration_responses" {
   default     = {}
 }
 
+variable "deployments" {
+  description = "Map keyed by deployment id to deployment configs"
+  type        = any
+  default     = {}
+}
+
 

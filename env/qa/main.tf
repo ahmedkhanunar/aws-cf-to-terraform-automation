@@ -187,6 +187,7 @@ module "apigateway" {
   method_responses       = var.method_responses
   integrations           = var.integrations
   integration_responses  = var.integration_responses
+  deployments            = var.deployments
 }
 
 

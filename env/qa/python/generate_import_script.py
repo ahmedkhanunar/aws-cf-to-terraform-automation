@@ -327,6 +327,15 @@ modules = [
             "aws_api_gateway_integration_response.managed": ""
         }
     },
+    {
+        "json_file": "../api_gateway.auto.tfvars.json",
+        "json_key": "deployments",
+        "tf_module": "module.apigateway",
+        "tf_files": ["../../../modules/apigateway/main.tf"],
+        "resources": {
+            "aws_api_gateway_deployment.managed": ""
+        }
+    },
 ]
 
 OUTPUT_FILE = "../import.sh"
@@ -831,6 +840,16 @@ def generate_import_script():
                         address = build_resource_address(tf_module, r_type, r_name, int_resp_key)
                         quoted_address = f'"{address}"'
                         import_id = f"{api_id}/{resource_id}/{http_method}/{status_code}"
+                        lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                    continue
+
+                elif r_type == "aws_api_gateway_deployment":
+                    # json_data keyed by deployment id
+                    for deployment_id, deployment_obj in json_data.items():
+                        api_id = deployment_obj.get("rest_api_id")
+                        address = build_resource_address(tf_module, r_type, r_name, deployment_id)
+                        quoted_address = f'"{address}"'
+                        import_id = f"{api_id}/{deployment_id}"
                         lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
                     continue
 

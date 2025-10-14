@@ -226,3 +226,35 @@ def find_resources_by_ids(resource_ids):
     return found
 
 
+def list_deployments_for_api(rest_api_id):
+    deployments = {}
+    try:
+        paginator = apigw.get_paginator("get_deployments")
+        for page in paginator.paginate(restApiId=rest_api_id):
+            for d in page.get("items", []):
+                deployment_id = d.get("id")
+                deployments[deployment_id] = {
+                    "rest_api_id": rest_api_id,
+                    "id": deployment_id,
+                    "description": d.get("description"),
+                    "created_date": d.get("createdDate").isoformat() if d.get("createdDate") else None,
+                }
+    except ClientError as e:
+        print(f"⚠️ Error listing deployments for API {rest_api_id}: {e}")
+    return deployments
+
+
+def get_deployment_by_id(rest_api_id, deployment_id):
+    try:
+        d = apigw.get_deployment(restApiId=rest_api_id, deploymentId=deployment_id)
+        return {
+            "rest_api_id": rest_api_id,
+            "id": d.get("id"),
+            "description": d.get("description"),
+            "created_date": d.get("createdDate").isoformat() if d.get("createdDate") else None,
+        }
+    except ClientError as e:
+        print(f"⚠️ Error getting deployment {deployment_id} for API {rest_api_id}: {e}")
+        return None
+
+

@@ -150,4 +150,21 @@ resource "aws_api_gateway_integration_response" "managed" {
   depends_on = [aws_api_gateway_integration.managed]
 }
 
+resource "aws_api_gateway_deployment" "managed" {
+  for_each = var.deployments
+
+  rest_api_id = each.value.rest_api_id
+  description = try(each.value.description, null)
+
+  # Lifecycle to prevent recreation on every apply
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  depends_on = [
+    aws_api_gateway_method.managed,
+    aws_api_gateway_integration.managed
+  ]
+}
+
 
