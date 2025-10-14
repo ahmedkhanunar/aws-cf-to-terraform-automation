@@ -39,6 +39,12 @@ variable "deployments" {
   default     = {}
 }
 
+variable "base_path_mappings" {
+  description = "Map keyed by domain|basePath to base path mapping configs"
+  type        = any
+  default     = {}
+}
+
 variable "tags" {
   type    = map(string)
   default = {}

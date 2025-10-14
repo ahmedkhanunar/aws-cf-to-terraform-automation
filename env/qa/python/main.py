@@ -56,6 +56,8 @@ from modules.apigateway_module import (
     find_resources_by_ids,
     list_deployments_for_api,
     get_deployment_by_id,
+    list_base_path_mappings_for_domain,
+    get_base_path_mapping,
 )
 
 
@@ -85,6 +87,7 @@ def main():
     apigw_integrations = {}
     apigw_integration_responses = {}
     apigw_deployments = {}
+    apigw_base_path_mappings = {}
 
     all_cloudfront_dists = {}
     all_cloudtrails = {}
@@ -329,6 +332,47 @@ def main():
                     stage_cfg["stage_name"] = stage_name or stage_cfg.get("stage_name")
                     apigw_stages[rid] = stage_cfg
 
+            elif rtype == "AWS::ApiGateway::BasePathMapping":
+                # BasePathMapping rid is typically domain_name|base_path or similar
+                # Need to extract domain name and base path from the rid
+                # The rid might be in format like "api-qa.helloporter.com|(none)" or similar
+                parts = rid.split("|") if "|" in rid else [rid, "(none)"]
+                domain_name = parts[0]
+                base_path = parts[1] if len(parts) > 1 else "(none)"
+                
+                mapping_cfg = get_base_path_mapping(domain_name, base_path)
+                if mapping_cfg:
+                    apigw_base_path_mappings[rid] = mapping_cfg
+                else:
+                    # Fallback: try to find it by listing all mappings for known domains
+                    for domain_rid in apigw_domain_names.keys():
+                        mappings = list_base_path_mappings_for_domain(domain_rid)
+                        for mapping_key, mapping_data in mappings.items():
+                            if mapping_key == rid or domain_rid in rid:
+                                apigw_base_path_mappings[rid] = mapping_data
+                                break
+
+            elif rtype == "AWS::ApiGateway::BasePathMapping":
+                # BasePathMapping rid format varies; typically domain_name or domain|path
+                # Try to extract domain name and base path
+                if "|" in rid:
+                    parts = rid.split("|", 1)
+                    domain_name = parts[0]
+                    base_path = parts[1] if len(parts) > 1 else ""
+                else:
+                    # Fallback: check all domains
+                    domain_name = None
+                    for domain_rid in apigw_domain_names.keys():
+                        mappings = list_base_path_mappings_for_domain(domain_rid)
+                        for mapping_key, mapping_cfg in mappings.items():
+                            apigw_base_path_mappings[mapping_key] = mapping_cfg
+                    
+                if domain_name:
+                    mapping_cfg = get_base_path_mapping(domain_name, base_path)
+                    if mapping_cfg:
+                        key = f"{domain_name}|{base_path if base_path else '(none)'}"
+                        apigw_base_path_mappings[key] = mapping_cfg
+
             elif rtype == "AWS::ApiGateway::Deployment":
                 # Deployment rid is deployment ID; need to find which API it belongs to
                 # Try to extract from stages that reference it
@@ -423,7 +467,8 @@ def main():
 
     # Write API Gateway output keyed by CFN physical IDs
     if any([apigw_rest_apis, apigw_account, apigw_domain_names, apigw_stages, apigw_resources, 
-            apigw_methods, apigw_method_responses, apigw_integrations, apigw_integration_responses, apigw_deployments]):
+            apigw_methods, apigw_method_responses, apigw_integrations, apigw_integration_responses, 
+            apigw_deployments, apigw_base_path_mappings]):
         with open("../api_gateway.auto.tfvars.json", "w") as f:
             json.dump({
                 "rest_apis": apigw_rest_apis,
@@ -436,6 +481,7 @@ def main():
                 "integrations": apigw_integrations,
                 "integration_responses": apigw_integration_responses,
                 "deployments": apigw_deployments,
+                "base_path_mappings": apigw_base_path_mappings,
             }, f, indent=2)
         print("✅ Exported API Gateway → api_gateway.auto.tfvars.json")
     if all_buckets:

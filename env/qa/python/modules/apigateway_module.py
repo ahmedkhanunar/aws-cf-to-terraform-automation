@@ -258,3 +258,36 @@ def get_deployment_by_id(rest_api_id, deployment_id):
         return None
 
 
+def list_base_path_mappings_for_domain(domain_name):
+    mappings = {}
+    try:
+        paginator = apigw.get_paginator("get_base_path_mappings")
+        for page in paginator.paginate(domainName=domain_name):
+            for m in page.get("items", []):
+                base_path = m.get("basePath", "(none)")
+                key = f"{domain_name}|{base_path}"
+                mappings[key] = {
+                    "domain_name": domain_name,
+                    "base_path": base_path if base_path != "(none)" else "",
+                    "rest_api_id": m.get("restApiId"),
+                    "stage": m.get("stage"),
+                }
+    except ClientError as e:
+        print(f"⚠️ Error listing base path mappings for domain {domain_name}: {e}")
+    return mappings
+
+
+def get_base_path_mapping(domain_name, base_path):
+    try:
+        m = apigw.get_base_path_mapping(domainName=domain_name, basePath=base_path if base_path else "")
+        return {
+            "domain_name": domain_name,
+            "base_path": m.get("basePath", "(none)") if m.get("basePath") != "(none)" else "",
+            "rest_api_id": m.get("restApiId"),
+            "stage": m.get("stage"),
+        }
+    except ClientError as e:
+        print(f"⚠️ Error getting base path mapping for {domain_name}/{base_path}: {e}")
+        return None
+
+

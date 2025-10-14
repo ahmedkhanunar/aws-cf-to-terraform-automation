@@ -167,4 +167,18 @@ resource "aws_api_gateway_deployment" "managed" {
   ]
 }
 
+resource "aws_api_gateway_base_path_mapping" "managed" {
+  for_each = var.base_path_mappings
+
+  domain_name = each.value.domain_name
+  api_id      = each.value.rest_api_id
+  stage_name  = try(each.value.stage, null)
+  base_path   = try(each.value.base_path, null)
+
+  depends_on = [
+    aws_api_gateway_domain_name.managed,
+    aws_api_gateway_stage.managed
+  ]
+}
+
 
