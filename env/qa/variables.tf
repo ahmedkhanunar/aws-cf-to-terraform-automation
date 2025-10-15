@@ -92,14 +92,21 @@ variable "functions" {
   default = {}
 }
 
-# variable "roles" {
-#   type = map(object({
-#     role_name                 = string
-#     assume_role_policy        = any
-#     attached_managed_policies = optional(list(string), [])
-#     inline_policies           = optional(map(any), {})
-#   }))
-# }
+variable "roles" {
+  description = "Map of IAM Role configurations (auto-generated)"
+  type = map(object({
+    role_name                 = string
+    path                      = optional(string, "/")
+    assume_role_policy        = any
+    description               = optional(string)
+    max_session_duration      = optional(number)
+    permissions_boundary      = optional(string)
+    tags                      = optional(map(string))
+    attached_managed_policies = optional(list(string), [])
+    inline_policies           = optional(map(string), {})  # JSON strings
+  }))
+  default = {}
+}
 
 variable "secrets" {
   type = map(object({

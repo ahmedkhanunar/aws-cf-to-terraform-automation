@@ -34,17 +34,6 @@ modules = [
             "aws_lambda_alias.alias": "aliases"
         }
     },
-    # {
-    #     "json_file": "../iam_roles.auto.tfvars.json",
-    #     "json_key": "roles",
-    #     "tf_module": "module.iam",
-    #     "tf_files": ["../../../modules/iam/main.tf"],
-    #     "resources": {
-    #         "aws_iam_role.managed": "",
-    #         "aws_iam_role_policy_attachment.managed": "attached_managed_policies",
-    #         "aws_iam_role_policy.inline": "inline_policies"
-    #     }
-    # },
     {
         "json_file": "../secrets.auto.tfvars.json",
         "json_key": "secrets",
@@ -345,6 +334,25 @@ modules = [
             "aws_api_gateway_base_path_mapping.managed": ""
         }
     },
+    {
+        "json_file": "../iam_roles.auto.tfvars.json",
+        "json_key": "roles",
+        "tf_module": "module.iam",
+        "tf_files": ["../../../modules/iam/main.tf"],
+        "resources": {
+            "aws_iam_role.managed": "",
+            "aws_iam_role_policy_attachment.managed": "attached_managed_policies",
+        }
+    },
+    {
+        "json_file": "../iam_roles.auto.tfvars.json",
+        "json_key": "inline_policies",
+        "tf_module": "module.iam",
+        "tf_files": ["../../../modules/iam/main.tf"],
+        "resources": {
+            "aws_iam_role_policy.inline": ""  # Only inline policies for this entry
+        }
+    }
 ]
 
 OUTPUT_FILE = "../import.sh"
@@ -354,7 +362,7 @@ def parse_tf_resources(tf_file_paths):
     resources = {}
     for tf_file in tf_file_paths:
         if not os.path.isfile(tf_file):
-            print(f"⚠️ Skipping missing file: {tf_file}")
+            print(f"WARNING Skipping missing file: {tf_file}")
             continue
         with open(tf_file, "r") as f:
             content = f.read()
@@ -367,7 +375,7 @@ def parse_tf_resources(tf_file_paths):
 
 def load_json_data(json_file, json_key):
     if not os.path.isfile(json_file):
-        print(f"⚠️ JSON file not found: {json_file}")
+        print(f"WARNING JSON file not found: {json_file}")
         return {}
     with open(json_file, "r") as f:
         data = json.load(f)
@@ -388,56 +396,60 @@ def build_resource_address(module_prefix, r_type, r_name, instance_key):
 def generate_import_script():
     lines = ["#!/bin/bash", "set -e\n"]
 
-    for mod in modules:
+    for i, mod in enumerate(modules):
         tf_module = mod["tf_module"]
         tf_files = mod["tf_files"]
         json_file = mod["json_file"]
         json_key = mod["json_key"]
         resources = mod["resources"]
 
-        print(f"🔍 Processing {tf_module}...")
+        print(f"Processing {tf_module}...")
 
         tf_defined = parse_tf_resources(tf_files)
         json_data = load_json_data(json_file, json_key)
 
         if not json_data:
-            print(f"⚠️ No data found in {json_file} under key '{json_key}'")
+            print(f"WARNING No data found in {json_file} under key '{json_key}'")
             continue
 
         for res_key, nested_key in resources.items():
             if res_key not in tf_defined:
-                print(f"⚠️ Resource {res_key} not defined in TF files of {tf_module}")
+                print(f"WARNING Resource {res_key} not defined in TF files of {tf_module}")
                 continue
 
             r_type = tf_defined[res_key]["type"]
             r_name = tf_defined[res_key]["name"]
 
-            # IAM Specific Handling
-            if tf_module == "module.iam_roles":
+            # IAM Specific Handling - First entry (roles and policy attachments)
+            if tf_module == "module.iam" and json_key == "roles":
+                # For IAM roles and policy attachments, we need the full data
+                # Reload the full JSON file to access both roles and inline_policies
+                with open(json_file, "r") as f:
+                    full_iam_data = json.load(f)
+                
                 if r_type == "aws_iam_role":
-                    for role_name in json_data:
-                        address = build_resource_address(tf_module, r_type, r_name, role_name)
+                    roles_data = full_iam_data.get("roles", {})
+                    for role_key, role_obj in roles_data.items():
+                        address = build_resource_address(tf_module, r_type, r_name, role_key)
                         quoted_address = f'"{address}"'
-                        import_id = role_name
+                        # Import ID is the actual role name
+                        import_id = role_obj.get("role_name", role_key)
                         lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
 
                 elif r_type == "aws_iam_role_policy_attachment":
-                    for role_name, role_obj in json_data.items():
+                    roles_data = full_iam_data.get("roles", {})
+                    for role_key, role_obj in roles_data.items():
+                        role_name = role_obj.get("role_name", role_key)
                         for policy_arn in role_obj.get("attached_managed_policies", []):
-                            key = f"{role_name}-{re.sub(r'[:/]', '_', policy_arn)}"
+                            key = f"{role_key}-{re.sub(r'[:/]', '_', policy_arn)}"
                             address = build_resource_address(tf_module, r_type, r_name, key)
                             quoted_address = f'"{address}"'
-                            import_id = policy_arn
+                            import_id = f"{role_name}/{policy_arn}"
                             lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
 
                 elif r_type == "aws_iam_role_policy":
-                    for role_name, role_obj in json_data.items():
-                        for policy_name in role_obj.get("inline_policies", {}):
-                            key = f"{role_name}-{policy_name}"
-                            import_id = f"{role_name}:{policy_name}"
-                            address = build_resource_address(tf_module, r_type, r_name, key)
-                            quoted_address = f'"{address}"'
-                            lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                    # This should not happen in the first entry, but just in case
+                    pass
 
                 continue  # IAM handled, skip default below
 
@@ -486,7 +498,7 @@ def generate_import_script():
                                 import_id = f"{route_table_id}_{destination}"
                                 lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
                             else:
-                                print(f"⚠️ Skipping route import for {key} — missing destination or target")
+                                print(f"WARNING Skipping route import for {key} — missing destination or target")
 
                 elif r_type == "aws_route_table_association":
                     for route_table_id, route_table in json_data.items():
@@ -494,7 +506,7 @@ def generate_import_script():
                         for i, assoc in enumerate(associations):
 
                             if assoc.get("Main", False):
-                                print(f"ℹ️ Skipping main route table association for {route_table_id}-{i}")
+                                print(f"INFO Skipping main route table association for {route_table_id}-{i}")
                                 continue  # 🚫 Skip main associations
 
                             key = f"{route_table_id}-{i}"
@@ -511,7 +523,7 @@ def generate_import_script():
                                 lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
                             
                             else:
-                                print(f"⚠️ Skipping association import for {key} — missing subnet_id/gateway_id")
+                                print(f"WARNING Skipping association import for {key} — missing subnet_id/gateway_id")
                 continue  # Skip default handler for route_table module
 
             elif tf_module == "module.nacl":
@@ -541,7 +553,7 @@ def generate_import_script():
                             rule_number = entry.get("RuleNumber")
                             egress = entry.get("Egress")
                             if rule_number is None or egress is None:
-                                print(f"⚠️ Skipping malformed entry in ACL {acl_id}")
+                                print(f"WARNING Skipping malformed entry in ACL {acl_id}")
                                 continue
                             key = f"{acl_id}-{str(egress).lower()}-{rule_number}"
                             address = build_resource_address(tf_module, r_type, r_name, key)
@@ -635,7 +647,7 @@ def generate_import_script():
                 for client_id, client_data in json_data.items():
                     user_pool_id = client_data.get("user_pool_id")
                     if not user_pool_id:
-                        print(f"⚠️ Skipping {client_id} — missing user_pool_id")
+                        print(f"WARNING Skipping {client_id} — missing user_pool_id")
                         continue
                     
                     address = build_resource_address(tf_module, r_type, r_name, client_id)
@@ -874,6 +886,28 @@ def generate_import_script():
                         lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
                     continue
 
+            # Special handling for inline policies (second IAM module entry)
+            if tf_module == "module.iam" and r_type == "aws_iam_role_policy":
+                # For inline policies, we need to load the full JSON to map role_id to role_name
+                with open(json_file, "r") as f:
+                    full_iam_data = json.load(f)
+                
+                roles_data = full_iam_data.get("roles", {})
+                inline_policies_data = full_iam_data.get("inline_policies", {})
+                
+                for policy_key, policy_obj in inline_policies_data.items():
+                    role_id = policy_obj.get("role_id")
+                    policy_name = policy_obj.get("policy_name")
+                    # Get the actual role name from roles data for import
+                    role_name = roles_data.get(role_id, {}).get("role_name", role_id)
+                    
+                    address = build_resource_address(tf_module, r_type, r_name, policy_key)
+                    quoted_address = f'"{address}"'
+                    import_id = f"{role_name}:{policy_name}"
+                    lines.append(f'terraform state show {quoted_address} >/dev/null 2>&1 || terraform import {quoted_address} "{import_id}"')
+                
+                continue  # Skip general handling for inline policies
+
             # General (non-nested) handling
             target_data = json_data.get(nested_key, {}) if nested_key else json_data
             for instance_key in target_data:
@@ -887,7 +921,7 @@ def generate_import_script():
         f.write("\n".join(lines))
 
     os.chmod(OUTPUT_FILE, os.stat(OUTPUT_FILE).st_mode | stat.S_IEXEC)
-    print(f"✅ Import script generated → {OUTPUT_FILE}")
+    print(f"OK Import script generated -> {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     generate_import_script()

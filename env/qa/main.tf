@@ -19,10 +19,11 @@ module "lambda" {
   functions   = var.functions
 }
 
-# module "iam" {
-#   source = "../../modules/iam"
-#   roles  = var.roles
-# }
+module "iam" {
+  source = "../../modules/iam"
+  tags   = var.tags
+  roles  = var.roles
+}
 
 module "secrets" {
   source      = "../../modules/secrets_manager"

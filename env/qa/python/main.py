@@ -69,6 +69,7 @@ def main():
     all_dynamodb = {}
     all_lambdas = {}
     all_roles = {}
+    all_inline_policies = {}  # Separate collection for inline policies
     all_users = {}
     all_groups = {}
     all_managed_policies = {}
@@ -125,79 +126,83 @@ def main():
                 continue
 
             if rtype == "AWS::S3::Bucket":
-                # print(f"   → Found bucket: {rid}")
+                # print(f"   -> Found bucket: {rid}")
                 bucket_config = get_s3_config(rid)
                 if bucket_config:
                     all_buckets[rid] = bucket_config
 
             elif rtype == "AWS::DynamoDB::Table":
-                # print(f"   → Found DynamoDB table: {rid}")
+                # print(f"   -> Found DynamoDB table: {rid}")
                 table_config = get_dynamodb_config(rid)
                 if table_config:
                     all_dynamodb[rid] = table_config
 
             elif rtype == "AWS::Lambda::Function":
-                # print(f"   → Found Lambda function: {rid}")
+                # print(f"   -> Found Lambda function: {rid}")
                 lambda_config = get_lambda_config(rid)
                 if lambda_config:
                     all_lambdas[rid] = lambda_config
 
             elif rtype == "AWS::IAM::Role":
-                # print(f"   → Found IAM Role: {rid}")
-                continue
-                role_config = get_iam_role_config(rid)
+                # print(f"   -> Found IAM Role: {rid}")
+                # Use sanitized rid as role_key
+                role_key = rid.replace("-", "_").replace(".", "_")
+                role_config, inline_policies = get_iam_role_config(rid, role_key)
                 if role_config:
-                    all_roles[rid] = role_config
+                    all_roles[role_key] = role_config
+                    # Merge inline policies into the global map
+                    all_inline_policies.update(inline_policies)
 
-            elif rtype == "AWS::IAM::User":
-                # print(f"   → Found IAM User: {rid}")
-                user_config = get_iam_user_config(rid)
-                if user_config:
-                    all_users[rid] = user_config
+            # elif rtype == "AWS::IAM::User":
+            #     # print(f"   -> Found IAM User: {rid}")
+            #     user_config = get_iam_user_config(rid)
+            #     if user_config:
+            #         all_users[rid] = user_config
 
-            elif rtype == "AWS::IAM::Group":
-                # print(f"   → Found IAM Group: {rid}")
-                group_config = get_iam_group_config(rid)
-                if group_config:
-                    all_groups[rid] = group_config
+            # elif rtype == "AWS::IAM::Group":
+            #     # print(f"   -> Found IAM Group: {rid}")
+            #     group_config = get_iam_group_config(rid)
+            #     if group_config:
+            #         all_groups[rid] = group_config
 
-            elif rtype == "AWS::IAM::Policy":
-                # print(f"   → Found IAM Policy: {rid}")
-                policy_config = get_iam_managed_policy_config(rid)
-                if policy_config:
-                    all_managed_policies[rid] = policy_config
+            # elif rtype == "AWS::IAM::Policy":
+            #     # print(f"   -> Found IAM Policy: {rid}")
+            #     policy_config = get_iam_managed_policy_config(rid)
+            #     if policy_config:
+            #         all_managed_policies[rid] = policy_config
+
             elif rtype == "AWS::SecretsManager::Secret":
-                # print(f"   → Found Secret: {rid}")
+                # print(f"   -> Found Secret: {rid}")
                 secret_config = get_secret_config(rid)
                 if secret_config:
                     all_secrets[rid] = secret_config
 
             elif rtype == "AWS::SNS::Topic":
-                # print(f"   → Found SNS Topic: {rid}")
+                # print(f"   -> Found SNS Topic: {rid}")
                 topic_config = get_sns_topic_config(rid)
                 if topic_config:
                     all_sns_topics[rid] = topic_config
 
             elif rtype == "AWS::EC2::VPC":
-                # print(f"   → Found VPC: {rid}")
+                # print(f"   -> Found VPC: {rid}")
                 vpc_config = get_vpc_config(rid)
                 if vpc_config:
                     all_vpcs[rid] = vpc_config
 
             # elif rtype == "AWS::CloudFront::Distribution":
-            #     print(f"   → Found CloudFront Distribution: {rid}")
+            #     print(f"   -> Found CloudFront Distribution: {rid}")
             #     dist_config = get_cloudfront_config(rid)
             #     if dist_config:
             #         all_cloudfront_dists[rid] = dist_config
 
             elif rtype == "AWS::CloudTrail::Trail":
-                # print(f"   → Found CloudTrail: {rid}")
+                # print(f"   -> Found CloudTrail: {rid}")
                 trail_config = get_cloudtrail_config(rid)
                 if trail_config:
                     all_cloudtrails[rid] = trail_config
 
             elif rtype == "AWS::Logs::LogGroup":
-                # print(f"   → Found CloudWatch Log Group: {rid}")
+                # print(f"   -> Found CloudWatch Log Group: {rid}")
                 log_group_config = get_log_group_config(rid)
                 if log_group_config:
                     all_log_groups[rid] = log_group_config
@@ -249,37 +254,38 @@ def main():
                     }
 
             elif rtype == "AWS::KMS::Key":
-                # print(f"   → Found KMS Key: {rid}")
+                # print(f"   -> Found KMS Key: {rid}")
                 kms_config = get_kms_key_config(rid)
                 if kms_config:
                     all_kms_keys[rid] = kms_config
 
             elif rtype == "AWS::Lambda::LayerVersion":
-                # print(f"   → Found Lambda Layer: {rid}")
+                # print(f"   -> Found Lambda Layer: {rid}")
+                continue
                 layer_config = get_lambda_layer_config_by_arn(rid)
                 if layer_config:
                     all_lambda_layers[rid] = layer_config
 
             elif rtype == "AWS::WAFv2::WebACL":
-                # print(f"   → Found WAFv2 WebACL: {rid}")
+                # print(f"   -> Found WAFv2 WebACL: {rid}")
                 web_acl_config = get_web_acl_config(rid)
                 if web_acl_config:
                     all_waf["web_acls"][rid] = web_acl_config
 
             elif rtype == "AWS::WAFv2::IPSet":
-                # print(f"   → Found WAFv2 IPSet: {rid}")
+                # print(f"   -> Found WAFv2 IPSet: {rid}")
                 ip_set_config = get_ip_set_config(rid)
                 if ip_set_config:
                     all_waf["ip_sets"][rid] = ip_set_config
 
             elif rtype == "AWS::Events::Rule":
-                # print(f"   → Found EventBridge Rule: {rid}")
+                # print(f"   -> Found EventBridge Rule: {rid}")
                 event_rule_config = get_event_rule_config(rid)
                 if event_rule_config:
                     all_event_rules[rid] = event_rule_config
 
             elif rtype == "AWS::SQS::Queue":
-                # print(f"   → Found SQS Queue: {rid}")
+                # print(f"   -> Found SQS Queue: {rid}")
                 sqs_queue_config = get_sqs_queue_config_by_physical_resource_id(rid)
                 if sqs_queue_config:
                     all_sqs_queues[rid] = sqs_queue_config
@@ -483,7 +489,7 @@ def main():
                 "deployments": apigw_deployments,
                 "base_path_mappings": apigw_base_path_mappings,
             }, f, indent=2)
-        print("✅ Exported API Gateway → api_gateway.auto.tfvars.json")
+        print("Exported API Gateway -> api_gateway.auto.tfvars.json")
     if all_buckets:
         with open("../s3.auto.tfvars.json", "w") as f:
             json.dump({"buckets": all_buckets}, f, indent=2)
@@ -499,10 +505,13 @@ def main():
             json.dump({"functions": all_lambdas}, f, indent=2)
         print("✅ Exported Lambdas → lambda.auto.tfvars.json")
 
-    if all_roles:
+    if all_roles or all_inline_policies:
         with open("../iam_roles.auto.tfvars.json", "w") as f:
-            json.dump({"roles": all_roles}, f, indent=2)
-        print("✅ Exported IAM Roles → iam_roles.auto.tfvars.json")
+            json.dump({
+                "roles": all_roles,
+                "inline_policies": all_inline_policies
+            }, f, indent=2)
+        print("✅ Exported IAM Roles and Inline Policies → iam_roles.auto.tfvars.json")
 
     if all_users:
         with open("../iam_users.auto.tfvars.json", "w") as f:
@@ -568,7 +577,7 @@ def main():
         }
         with open("../config.auto.tfvars.json", "w") as f:
             json.dump(config_data, f, indent=2)
-        print("✅ Exported AWS Config → config.auto.tfvars.json")
+        print("✅ Exported AWS Config -> config.auto.tfvars.json")
 
     if all_kms_keys:
         kms_aliases = {
