@@ -36,6 +36,8 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-# Ignore Python cache folders
+# Ignore all __pycache__ folders
 __pycache__/
+
+# Ignore all .pyc files
 *.pyc
