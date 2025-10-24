@@ -7,7 +7,8 @@ resource "aws_lambda_function" "managed" {
   role          = each.value.role
   memory_size   = each.value.memory_size
   timeout       = each.value.timeout
-  description   = try(each.value.description, null)
+  description = try(each.value.description)
+
 
   # 👇 New way to publish versions (replaces aws_lambda_version)
   publish = try(each.value.publish_version, false)
@@ -54,21 +55,31 @@ resource "aws_lambda_function" "managed" {
     }
   }
 
+  # lifecycle {
+  #   ignore_changes = [
+  #     # filename,
+  #     # source_code_hash,
+  #     # runtime,
+  #     # layers,
+  #     description,
+  #     # publish,
+  #     reserved_concurrent_executions,
+  #     environment,
+  #     vpc_config
+  #     # timeout,
+  #     # memory_size
+  #   ]
+  # }
+
   lifecycle {
-    ignore_changes = [
-      filename,
-      source_code_hash,
-      runtime,
-      layers,
-      description,
-      publish,
-      reserved_concurrent_executions,
-      environment,
-      vpc_config,
-      timeout,
-      memory_size
-    ]
-  }
+  ignore_changes = [
+    description,
+    vpc_config,
+    environment,
+    reserved_concurrent_executions,
+  ]
+}
+
 
   tags = merge(
     var.tags,
