@@ -16,7 +16,7 @@ from modules.iam_role_module import (
 from modules.secrets_manager_module import get_secret_config
 from modules.sns_module import get_sns_topic_config
 from modules.vpc_module import get_vpc_config, extract_flat_resources
-from modules.cloudfront_module import get_cloudfront_config
+from modules.cloudfront_module import get_cloudfront_config, list_all_distributions
 from modules.cloudtrail_module import get_cloudtrail_config
 from modules.cloudwatch_module import get_log_group_config
 
@@ -189,11 +189,11 @@ def main():
                 if vpc_config:
                     all_vpcs[rid] = vpc_config
 
-            # elif rtype == "AWS::CloudFront::Distribution":
-            #     print(f"   -> Found CloudFront Distribution: {rid}")
-            #     dist_config = get_cloudfront_config(rid)
-            #     if dist_config:
-            #         all_cloudfront_dists[rid] = dist_config
+            elif rtype == "AWS::CloudFront::Distribution":
+                print(f"   -> Found CloudFront Distribution: {rid}")
+                dist_config = get_cloudfront_config(rid)
+                if dist_config:
+                    all_cloudfront_dists[rid] = dist_config
 
             elif rtype == "AWS::CloudTrail::Trail":
                 # print(f"   -> Found CloudTrail: {rid}")
@@ -219,7 +219,7 @@ def main():
                     if client_config:
                         all_user_pool_clients[rid] = client_config
                 else:
-                    print(f"⚠️ Skipped UserPoolClient {rid} (no parent pool found)")
+                    print(f"WARNING Skipped UserPoolClient {rid} (no parent pool found)")
 
             elif rtype == "AWS::Cognito::IdentityPool":
                 identity_pool_config = get_identity_pool_config(rid)
@@ -469,6 +469,15 @@ def main():
                                     "selection_pattern": int_resp_cfg.get("selectionPattern"),
                                 }
 
+    # Fetch CloudFront distributions directly (not from CloudFormation)
+    print("Fetching CloudFront distributions...")
+    cf_dist_ids = list_all_distributions()
+    for dist_id in cf_dist_ids:
+        print(f"   -> Processing CloudFront Distribution: {dist_id}")
+        dist_config = get_cloudfront_config(dist_id)
+        if dist_config:
+            all_cloudfront_dists[dist_id] = dist_config
+
     # Save outputs
 
     # Write API Gateway output keyed by CFN physical IDs
@@ -493,17 +502,17 @@ def main():
     if all_buckets:
         with open("../s3.auto.tfvars.json", "w") as f:
             json.dump({"buckets": all_buckets}, f, indent=2)
-        print("✅ Exported S3 buckets → s3.auto.tfvars.json")
+        print("OK Exported S3 buckets -> s3.auto.tfvars.json")
 
     if all_dynamodb:
         with open("../dynamodb.auto.tfvars.json", "w") as f:
             json.dump({"dynamodb_tables": all_dynamodb}, f, indent=2)
-        print("✅ Exported DynamoDB tables → dynamodb.auto.tfvars.json")
+        print("OK Exported DynamoDB tables -> dynamodb.auto.tfvars.json")
 
     if all_lambdas:
         with open("../lambda.auto.tfvars.json", "w") as f:
             json.dump({"functions": all_lambdas}, f, indent=2)
-        print("✅ Exported Lambdas → lambda.auto.tfvars.json")
+        print("OK Exported Lambdas -> lambda.auto.tfvars.json")
 
     if all_roles or all_inline_policies:
         with open("../iam_roles.auto.tfvars.json", "w") as f:
@@ -511,53 +520,53 @@ def main():
                 "roles": all_roles,
                 "inline_policies": all_inline_policies
             }, f, indent=2)
-        print("✅ Exported IAM Roles and Inline Policies → iam_roles.auto.tfvars.json")
+        print("OK Exported IAM Roles and Inline Policies -> iam_roles.auto.tfvars.json")
 
     if all_users:
         with open("../iam_users.auto.tfvars.json", "w") as f:
             json.dump({"users": all_users}, f, indent=2)
-        print("✅ Exported IAM Users → iam_users.auto.tfvars.json")
+        print("OK Exported IAM Users -> iam_users.auto.tfvars.json")
 
     if all_groups:
         with open("../iam_groups.auto.tfvars.json", "w") as f:
             json.dump({"groups": all_groups}, f, indent=2)
-        print("✅ Exported IAM Groups → iam_groups.auto.tfvars.json")
+        print("OK Exported IAM Groups -> iam_groups.auto.tfvars.json")
 
     if all_managed_policies:
         with open("../iam_policies.auto.tfvars.json", "w") as f:
             json.dump({"policies": all_managed_policies}, f, indent=2)
-        print("✅ Exported IAM Managed Policies → iam_policies.auto.tfvars.json")
+        print("OK Exported IAM Managed Policies -> iam_policies.auto.tfvars.json")
 
     if all_secrets:
         with open("../secrets.auto.tfvars.json", "w") as f:
             json.dump({"secrets": all_secrets}, f, indent=2)
-        print("✅ Exported Secrets → secrets.auto.tfvars.json")
+        print("OK Exported Secrets -> secrets.auto.tfvars.json")
 
     if all_sns_topics:
         with open("../sns.auto.tfvars.json", "w") as f:
             json.dump({"topics": all_sns_topics}, f, indent=2)
-        print("✅ Exported SNS topics → sns.auto.tfvars.json")
+        print("OK Exported SNS topics -> sns.auto.tfvars.json")
 
     if all_vpcs:
         flat = extract_flat_resources({"vpcs": all_vpcs})
         with open("../vpc.auto.tfvars.json", "w") as f:
             json.dump(flat, f, indent=2)
-        print("✅ Exported VPCs → vpc.auto.tfvars.json")
+        print("OK Exported VPCs -> vpc.auto.tfvars.json")
 
-    # if all_cloudfront_dists:
-    #     with open("../cloudfront.auto.tfvars.json", "w") as f:
-    #         json.dump({"distributions": all_cloudfront_dists}, f, indent=2)
-    #     print("✅ Exported CloudFront Distributions → cloudfront.auto.tfvars.json")
+    if all_cloudfront_dists:
+        with open("../cloudfront.auto.tfvars.json", "w") as f:
+            json.dump({"cloudfront_distributions": all_cloudfront_dists}, f, indent=2)
+        print("OK Exported CloudFront Distributions -> cloudfront.auto.tfvars.json")
 
     if all_cloudtrails:
         with open("../cloudtrail.auto.tfvars.json", "w") as f:
             json.dump({"cloudtrails": all_cloudtrails}, f, indent=2)
-        print("✅ Exported CloudTrails → cloudtrail.auto.tfvars.json")
+        print("OK Exported CloudTrails -> cloudtrail.auto.tfvars.json")
 
     if all_log_groups:
         with open("../cloudwatch.auto.tfvars.json", "w") as f:
             json.dump({"log_groups": all_log_groups}, f, indent=2)
-        print("✅ Exported CloudWatch Log Groups → cloudwatch.auto.tfvars.json")
+        print("OK Exported CloudWatch Log Groups -> cloudwatch.auto.tfvars.json")
 
     if any([all_user_pools, all_user_pool_clients, all_identity_pools]):
         cognito_data = {
@@ -567,7 +576,7 @@ def main():
         }
         with open("../cognito.auto.tfvars.json", "w") as f:
             json.dump(cognito_data, f, indent=2)
-        print("✅ Exported Cognito resources → cognito.auto.tfvars.json")
+        print("OK Exported Cognito resources -> cognito.auto.tfvars.json")
 
     if any([all_config_recorders, all_delivery_channels, all_config_rules]):
         config_data = {
@@ -577,7 +586,7 @@ def main():
         }
         with open("../config.auto.tfvars.json", "w") as f:
             json.dump(config_data, f, indent=2)
-        print("✅ Exported AWS Config -> config.auto.tfvars.json")
+        print("OK Exported AWS Config -> config.auto.tfvars.json")
 
     if all_kms_keys:
         kms_aliases = {
@@ -596,32 +605,32 @@ def main():
         with open("../kms.auto.tfvars.json", "w") as f:
             json.dump(final_kms_data, f, indent=2)
 
-        print("✅ Exported KMS Keys and Aliases → kms.auto.tfvars.json")
+        print("OK Exported KMS Keys and Aliases -> kms.auto.tfvars.json")
 
     if all_lambda_layers:
         with open("../lambda_layers.auto.tfvars.json", "w") as f:
             json.dump({"lambda_layers": all_lambda_layers}, f, indent=2)
-        print("✅ Exported Lambda Layers → lambda_layers.auto.tfvars.json")
+        print("OK Exported Lambda Layers -> lambda_layers.auto.tfvars.json")
 
     if any([all_waf["web_acls"], all_waf["ip_sets"]]):
         with open("../waf.auto.tfvars.json", "w") as f:
             json.dump(all_waf, f, indent=2)
-        print("✅ Exported WAF resources → waf.auto.tfvars.json")
+        print("OK Exported WAF resources -> waf.auto.tfvars.json")
 
     if all_event_rules:
         with open("../events.auto.tfvars.json", "w") as f:
             json.dump({"event_rules": all_event_rules}, f, indent=2)
-        print("✅ Exported EventBridge Rules → events.auto.tfvars.json")
+        print("OK Exported EventBridge Rules -> events.auto.tfvars.json")
 
     if all_sqs_queues:
         with open("../sqs.auto.tfvars.json", "w") as f:
             json.dump({"sqs_queues": all_sqs_queues}, f, indent=2)
-        print("✅ Exported SQS Queues → sqs.auto.tfvars.json")
+        print("OK Exported SQS Queues -> sqs.auto.tfvars.json")
 
     if all_state_machines:
         with open("../stepfunctions.auto.tfvars.json", "w") as f:
             json.dump({"state_machines": all_state_machines}, f, indent=2)
-        print("✅ Exported Step Functions State Machines → stepfunctions.auto.tfvars.json")
+        print("OK Exported Step Functions State Machines -> stepfunctions.auto.tfvars.json")
 
 
 if __name__ == "__main__":

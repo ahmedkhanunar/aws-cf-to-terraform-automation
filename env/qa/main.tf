@@ -106,6 +106,12 @@ module "cloudtrail" {
   cloudtrails  = var.cloudtrails
 }
 
+module "cloudfront" {
+  source       = "../../modules/cloudfront"
+  environment  = var.environment
+  tags         = var.tags
+  distributions = var.cloudfront_distributions
+}
 
 module "cloudwatch" {
   source       = "../../modules/cloudwatch"

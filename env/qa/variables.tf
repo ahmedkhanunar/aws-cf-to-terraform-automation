@@ -305,6 +305,12 @@ variable "cloudtrails" {
   }))
 }
 
+variable "cloudfront_distributions" {
+  description = "Map of CloudFront distributions (auto-generated)"
+  type = any
+  default = {}
+}
+
 variable "log_groups" {
   description = "Map of CloudWatch Log Groups to manage"
   type = map(object({

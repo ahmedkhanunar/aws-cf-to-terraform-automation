@@ -141,6 +141,15 @@ modules = [
         }
     },
     {
+        "json_file": "../cloudfront.auto.tfvars.json",
+        "json_key": "cloudfront_distributions",
+        "tf_module": "module.cloudfront",
+        "tf_files": ["../../../modules/cloudfront/main.tf"],
+        "resources": {
+            "aws_cloudfront_distribution.managed": ""
+        }
+    },
+    {
         "json_file": "../cloudwatch.auto.tfvars.json",
         "json_key": "log_groups",
         "tf_module": "module.cloudwatch",
